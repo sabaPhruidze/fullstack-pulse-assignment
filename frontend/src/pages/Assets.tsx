@@ -1,17 +1,14 @@
-import React from "react";
+import PageLayout from "../components/layout/PageLayout";
 import Header from "../components/header/Header";
 
 function Assets() {
   return (
-    <div className="bg-pulse-bg min-h-screen">
-      <Header />
-      <div className="p-5">
-        <h1 className="text-3xl font-bold text-pulse-text mb-2">Assets</h1>
-        <p className="text-sm text-pulse-soft font-semibold">
-          Unified view of stocks and crypto currencies
-        </p>
-      </div>
-    </div>
+    <PageLayout
+      title="Assets"
+      subtitle="Unified view of stocks and crypto currencies"
+    >
+      <div>fewf</div>
+    </PageLayout>
   );
 }
 
