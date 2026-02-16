@@ -1,25 +1,15 @@
+import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
-import Header from "../components/header/Header";
+import AssetFilterTabs, { AssetFilter } from "../components/ui/AssetFilterTabs";
 
 function Assets() {
+  const [filter, setFilter] = useState<AssetFilter>("all");
   return (
     <PageLayout
       title="Assets"
       subtitle="Unified view of stocks and crypto currencies"
     >
-      {/* Tabs */}
-      <div className="mt-4 flex gap-2">
-        <button className="border border-pulse-border px-3 py-2 rounded-lg bg-pulse-surface text-pulse-text text-sm font-semibold">
-          All
-        </button>
-        <button className="border border-pulse-border px-3 py-2 rounded-lg bg-pulse-surface text-pulse-text text-sm font-semibold">
-          {" "}
-          Stocks Only
-        </button>
-        <button className="border border-pulse-border px-3 py-2 rounded-lg bg-pulse-surface text-pulse-text text-sm font-semibold">
-          Crypto Only
-        </button>
-      </div>
+      <AssetFilterTabs value={filter} onChange={setFilter} />
       <div>
         <div className="mt-3">
           <input
