@@ -1,24 +1,17 @@
 import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
 import AssetFilterTabs, { AssetFilter } from "../components/ui/AssetFilterTabs";
-
+import AssetSeachBar from "../components/ui/AssetSeachBar";
 function Assets() {
   const [filter, setFilter] = useState<AssetFilter>("all");
+  const [search, setSearch] = useState<string>("");
   return (
     <PageLayout
       title="Assets"
       subtitle="Unified view of stocks and crypto currencies"
     >
       <AssetFilterTabs value={filter} onChange={setFilter} />
-      <div>
-        <div className="mt-3">
-          <input
-            type="text"
-            placeholder="Search by symbol or name..."
-            className="search-bar"
-          />
-        </div>
-      </div>
+      <AssetSeachBar value={search} onChange={setSearch} />
     </PageLayout>
   );
 }
