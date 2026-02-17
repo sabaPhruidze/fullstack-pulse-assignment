@@ -1,13 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAssets } from "../endpoints/assets";
-import type { Assets } from "../../types/assets";
-
-export type AssetFilter = "all" | "stocks" | "crypto";
-
-type Params = {
-  filter: AssetFilter;
-  search: string;
-};
+import type { Assets, AssetFilter, Params } from "../../types/assets";
 
 const useAssets = ({ filter, search }: Params) => {
   return useQuery<Assets>({
