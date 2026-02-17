@@ -8,6 +8,7 @@ function Assets() {
   const [filter, setFilter] = useState<AssetFilter>("all");
   const [search, setSearch] = useState<string>("");
   const { data, isLoading, isError, error } = useAssets({ filter, search });
+  const items = data?.data ?? [];
   return (
     <PageLayout
       title="Assets"
@@ -15,7 +16,13 @@ function Assets() {
     >
       <AssetFilterTabs value={filter} onChange={setFilter} />
       <AssetSeachBar value={search} onChange={setSearch} />
-      <AssetsListCard />
+      <AssetsListCard
+        title="Assets"
+        items={items}
+        isLoading={isLoading}
+        isError={isError}
+        errorMessage={error instanceof Error ? error.message : "Unknown error"}
+      />
     </PageLayout>
   );
 }

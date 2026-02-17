@@ -2,8 +2,20 @@ import React from "react";
 import type { TopMover } from "../../types/assets";
 type Props = {
   title?: string;
+  items: TopMover[];
+  isLoading?: boolean;
+  isError?: boolean;
+  errorMessage?: string;
 };
-const AssetsListCard = ({ title = "Assets" }: Props) => {
+
+const formatPct = (n: number) => `${n > 0 ? "+" : ""}${n.toFixed(2)}`;
+const AssetsListCard = ({
+  title = "Assets",
+  items,
+  isLoading = false,
+  isError = false,
+  errorMessage,
+}: Props) => {
   return (
     <div className="mt-4 rounded-xl border border-pulse-border bg-pulse-surface2 p-3">
       <p className="text-sm font-bold text-pulse-text mb-2">{title}</p>
