@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
 import AssetFilterTabs, { AssetFilter } from "../components/ui/AssetFilterTabs";
 import AssetSeachBar from "../components/ui/AssetSeachBar";
+import AssetsListCard from "../components/ui/AssetsListCard";
 function Assets() {
   const [filter, setFilter] = useState<AssetFilter>("all");
   const [search, setSearch] = useState<string>("");
@@ -12,6 +13,7 @@ function Assets() {
     >
       <AssetFilterTabs value={filter} onChange={setFilter} />
       <AssetSeachBar value={search} onChange={setSearch} />
+      <AssetsListCard />
     </PageLayout>
   );
 }
