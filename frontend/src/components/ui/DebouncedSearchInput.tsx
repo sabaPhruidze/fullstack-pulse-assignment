@@ -6,7 +6,7 @@ type Props = {
   onDebounce?: (v: string) => void;
   delay?: number;
   placeholder?: string;
-  type?: "text" | "search";
+
   className?: string;
 };
 
@@ -16,7 +16,7 @@ const DebouncedSearchInput = ({
   onDebounce, // user written text but debounced
   delay, // debounce: it will write after 3000ms for less rerender
   placeholder,
-  type,
+
   className,
 }: Props) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -35,7 +35,7 @@ const DebouncedSearchInput = ({
   }, [value]);
   return (
     <input
-      type={type}
+      type="search"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
