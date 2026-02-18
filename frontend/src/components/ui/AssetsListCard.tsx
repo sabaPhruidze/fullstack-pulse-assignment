@@ -11,7 +11,6 @@ type Props = {
 
 const formatPct = (n: number) => `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const AssetsListCard = ({
-  title = "Assets",
   items,
   isLoading = false,
   isError = false,

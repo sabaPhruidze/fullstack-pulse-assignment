@@ -1,5 +1,4 @@
-import React from "react";
-export type AssetFilter = "all" | "stocks" | "crypto";
+import { AssetFilter } from "../../types/assets";
 
 type Tab = {
   key: AssetFilter;
@@ -28,6 +27,7 @@ const AssetFilterTabs = ({ value, onChange }: Props) => {
                 ? "bg-pulse-surface2 text-pulse-text"
                 : "bg-pulse-surface text-pulse-soft",
             ].join(" ")}
+            key={tab.key}
           >
             {tab.label}
           </button>

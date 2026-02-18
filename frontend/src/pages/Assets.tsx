@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
-import AssetFilterTabs, { AssetFilter } from "../components/ui/AssetFilterTabs";
+import AssetFilterTabs from "../components/ui/AssetFilterTabs";
+import type { AssetFilter } from "../types/assets";
 import AssetSeachBar from "../components/ui/AssetSeachBar";
 import AssetsListCard from "../components/ui/AssetsListCard";
 import useAssets from "../api/hooks/useAssets";
