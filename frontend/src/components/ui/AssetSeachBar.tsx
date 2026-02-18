@@ -19,7 +19,7 @@ const AssetSeachBar = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        delay={3000}
+        delay={500}
         onDebounce={onDebounce}
       />
     </div>
