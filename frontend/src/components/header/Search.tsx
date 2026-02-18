@@ -7,7 +7,7 @@ const Search = () => {
   useEffect(() => {
     const id = window.setTimeout(() => {
       setDebouncedQuery(query.trim());
-    }, 500);
+    }, 3000);
     return () => window.clearTimeout(id);
   }, [query]);
 
