@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-
+import { NAV_ITEMS } from "../../../constants/navigation";
 type Props = {
   open: boolean;
   onClose: () => void;
@@ -36,25 +36,19 @@ const SideDrawer = ({ open, onClose }: Props) => {
             </button>
           </div>
           <nav className="p-3 space-y-1">
-            <NavLink
-              to="/"
-              end
-              onClick={onClose}
-              className={({ isActive }) =>
-                `link-base ${isActive ? "link-active" : "link-iddle"}`
-              }
-            >
-              <span>Dashboard</span>
-            </NavLink>
-            <NavLink
-              to="/assets"
-              onClick={onClose}
-              className={({ isActive }) =>
-                `link-base ${isActive ? "link-active" : "link-iddle"}`
-              }
-            >
-              <span>Assets</span>
-            </NavLink>
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.label}
+                to={item.path}
+                end
+                onClick={onClose}
+                className={({ isActive }) =>
+                  `link-base ${isActive ? "link-active" : "link-iddle"}`
+                }
+              >
+                <span>{item.label}</span>
+              </NavLink>
+            ))}
           </nav>
         </motion.aside>
       )}

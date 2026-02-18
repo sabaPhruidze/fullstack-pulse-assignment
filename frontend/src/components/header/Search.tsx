@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Search = () => {
   const [query, setQuery] = useState(""); // user written text
   const [debouncedQuery, setDebouncedQuery] = useState(""); // user written text but debounced
-  // debounce: it will write after 500ms for less rerender
+  // debounce: it will write after 3000ms for less rerender
   useEffect(() => {
     const id = window.setTimeout(() => {
       setDebouncedQuery(query.trim());
@@ -14,7 +14,7 @@ const Search = () => {
   useEffect(() => {
     if (!debouncedQuery) return;
     console.log("Search", debouncedQuery);
-  }, []);
+  }, [debouncedQuery]);
   return (
     <div className="w-full max-w-[25rem] min-w-[10rem] px-5">
       <input
