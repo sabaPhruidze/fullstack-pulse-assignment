@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
+import DebouncedSearchInput from "../ui/DebouncedSearchInput";
 const Search = () => {
   const [query, setQuery] = useState(""); // user written text
-  const [debouncedQuery, setDebouncedQuery] = useState(""); // user written text but debounced
-  // debounce: it will write after 3000ms for less rerender
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      setDebouncedQuery(query.trim());
-    }, 3000);
-    return () => window.clearTimeout(id);
-  }, [query]);
 
-  useEffect(() => {
-    if (!debouncedQuery) return;
-    console.log("Search", debouncedQuery);
-  }, [debouncedQuery]);
   return (
     <div className="w-full max-w-[25rem] min-w-[10rem] px-5">
-      <input
-        type="search"
+      <DebouncedSearchInput
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={setQuery}
+        delay={500}
         placeholder="Search..."
+        onDebounce={(v) => {
+          if (!v) return;
+          console.log("Search", v);
+        }}
         className="search-bar"
       />
       {/* <p>Debounced {debouncedQuery || "-"}</p> This will have what has to be displayed for the future*/}

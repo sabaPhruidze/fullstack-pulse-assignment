@@ -13,8 +13,8 @@ type Props = {
 const DebouncedSearchInput = ({
   value,
   onChange,
-  onDebounce,
-  delay,
+  onDebounce, // user written text but debounced
+  delay, // debounce: it will write after 3000ms for less rerender
   placeholder,
   type,
   className,
