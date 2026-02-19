@@ -1,14 +1,24 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import DebouncedSearchInput from "../ui/DebouncedSearchInput";
 import { useNavigate } from "react-router-dom";
 import { NAV_ITEMS } from "../../constants/navigation";
 const Search = () => {
   const navigate = useNavigate();
-
+  const wrapperRef = useRef<HTMLDivElement | null>(null); // new typescript learned
   const [query, setQuery] = useState(""); // user written text
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false); // show or hide
 
+  useEffect(() => {
+    const handleMouseDown = (event: MouseEvent) => {
+      const wrapper = wrapperRef.current;
+      if (!wrapper) return;
+      const clickedInside = wrapper.contains(event.target as Node);
+      if (!clickedInside) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleMouseDown);
+    return () => document.removeEventListener("mousedown", handleMouseDown);
+  }, []);
   const filteredNavItems = useMemo(() => {
     const searchText = debouncedQuery.trim().toLowerCase();
     // if nothing written show all pages
@@ -25,7 +35,10 @@ const Search = () => {
     setOpen(false);
   };
   return (
-    <div className="w-full max-w-[25rem] min-w-[10rem] px-5 relative">
+    <div
+      className="w-full max-w-[25rem] min-w-[10rem] px-5 relative"
+      ref={wrapperRef}
+    >
       <DebouncedSearchInput
         value={query}
         onChange={(v) => {
