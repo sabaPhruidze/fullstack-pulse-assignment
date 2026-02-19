@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { NAV_ITEMS } from "../../../constants/navigation";
+import { NAV_ITEMS } from "../../constants/navigation";
 type Props = {
   open: boolean;
   onClose: () => void;

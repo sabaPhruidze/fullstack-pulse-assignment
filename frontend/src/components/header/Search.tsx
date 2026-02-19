@@ -1,7 +1,8 @@
+import { NAV_ITEMS } from "../../constants/navigation";
 import { useState, useMemo, useRef, useEffect } from "react";
 import DebouncedSearchInput from "../ui/DebouncedSearchInput";
 import { useNavigate } from "react-router-dom";
-import { NAV_ITEMS } from "../../constants/navigation";
+
 const Search = () => {
   const navigate = useNavigate();
   const wrapperRef = useRef<HTMLDivElement | null>(null); // new typescript learned
