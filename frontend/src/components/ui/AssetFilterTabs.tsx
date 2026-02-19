@@ -22,7 +22,7 @@ const AssetFilterTabs = ({ value, onChange }: Props) => {
         return (
           <button
             className={[
-              "border border-pulse-border px-3 py-2 rounded-lg text-sm font-semibold",
+              "border border-pulse-border px-3 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-pulse-primary transition-shadow duration-300 ease-in-out",
               isActive
                 ? "bg-pulse-surface2 text-pulse-text"
                 : "bg-pulse-surface text-pulse-soft",
