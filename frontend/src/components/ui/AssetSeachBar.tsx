@@ -1,11 +1,6 @@
 import DebouncedSearchInput from "./DebouncedSearchInput";
+import type { DebouncedSearchInputProps as Props } from "../../types/ui";
 
-type Props = {
-  value: string;
-  onChange: (next: string) => void;
-  placeholder?: string;
-  onDebounce?: (v: string) => void;
-};
 const AssetSeachBar = ({
   value,
   onChange,

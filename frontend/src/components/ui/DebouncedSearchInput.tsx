@@ -1,13 +1,5 @@
 import React, { useEffect } from "react";
-
-type Props = {
-  value: string;
-  onChange: (next: string) => void;
-  onDebounce?: (debouncedtext: string) => void;
-  delay?: number;
-  placeholder?: string;
-  className?: string;
-};
+import type { DebouncedSearchInputProps as Props } from "../../types/ui";
 
 const DebouncedSearchInput = ({
   value,

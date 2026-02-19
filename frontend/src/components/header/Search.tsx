@@ -12,10 +12,15 @@ const Search = () => {
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
+      // called onClick
       const wrapper = wrapperRef.current;
       if (!wrapper) return;
-      const clickedInside = wrapper.contains(event.target as Node);
-      if (!clickedInside) setOpen(false);
+      const clickedInside = wrapper.contains(event.target as Node); // .contains is checking if clicked element is inside or outsode tje wrapper (our div element)
+      if (!clickedInside) {
+        setOpen(false);
+      } else {
+        setOpen(true); //this way it will automatically display the list
+      }
     };
     document.addEventListener("mousedown", handleMouseDown);
     return () => document.removeEventListener("mousedown", handleMouseDown);
@@ -56,7 +61,9 @@ const Search = () => {
       {open && (
         <div className="absolute left-5 right-5 top-[3.1rem] bg-pulse-surface2 border border-pulse-border rounded-lg overflow-hidden z-50">
           {filteredNavItems.length === 0 ? (
-            <div className="px-3 py-2 text-pulse-soft text-sm">No Results</div>
+            <div className="px-3 py-2 text-pulse-soft font-semibold">
+              No Results
+            </div>
           ) : (
             filteredNavItems.map((item) => (
               <button
