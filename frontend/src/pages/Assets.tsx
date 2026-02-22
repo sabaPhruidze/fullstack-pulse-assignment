@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
 import AssetFilterTabs from "../components/ui/AssetFilterTabs";
 import type { AssetFilter } from "../types/assets";
 import AssetSeachBar from "../components/ui/AssetSeachBar";
 import AssetsListCard from "../components/ui/AssetsListCard";
 import useAssets from "../api/hooks/useAssets";
+import { sortAssetsByChangePercent, type SortDir } from "../lib/sortAssets";
 
 function Assets() {
   const [filter, setFilter] = useState<AssetFilter>("all");
@@ -14,6 +15,10 @@ function Assets() {
   const [search, setSearch] = useState<string>("");
   const { data, isLoading, isError, error } = useAssets({ filter, search });
   const items = data?.data ?? [];
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
+
+  const displayedItems = sortAssetsByChangePercent(items, sortDir);
+  console.log(displayedItems);
   return (
     <PageLayout
       title="Assets"
@@ -25,6 +30,7 @@ function Assets() {
         onChange={setSearchInput}
         onDebounce={setSearch}
       />
+      <button onClick={() => setSortDir("asc")}>test</button>
       <AssetsListCard
         title="Assets"
         items={items}
