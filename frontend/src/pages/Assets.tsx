@@ -31,7 +31,7 @@ function Assets() {
       />
       <AssetsListCard
         title="Assets"
-        items={items}
+        items={displayedItems}
         sortDir={sortDir}
         onToggleSort={() =>
           setSortDir((prev) => (Object.is(prev, "asc") ? "desc" : "asc"))

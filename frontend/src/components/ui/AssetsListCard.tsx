@@ -18,11 +18,23 @@ const AssetsListCard = ({
   isLoading = false,
   isError = false,
   errorMessage,
+  sortDir,
+  onToggleSort,
 }: Props) => {
   return (
     <SectionCard title="Assets">
       <div className=" text-pulse-soft font-semibold flex justify-between mt-5">
-        <span>Symbol</span>
+        <button
+          type="button"
+          onClick={onToggleSort}
+          className="flex items-center gap-2"
+        >
+          <span>Symbol</span>
+          <span className="text-xs">
+            {Object.is(sortDir, "asc") ? "▲" : "▼"}{" "}
+            {/*used Unicode's not to search odnwload and than import images */}
+          </span>
+        </button>
         <span>Change %</span>
       </div>
 
