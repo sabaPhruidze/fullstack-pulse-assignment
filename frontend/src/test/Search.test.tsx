@@ -77,4 +77,21 @@ describe("Header's Search", () => {
 
     vi.useRealTimers();
   });
+  // test of when writing inside search and no results shown what it has to display after debounce
+  test("display no results when search has no matcher after debounce in dropdownmenu", () => {
+    vi.useFakeTimers();
+    render(
+      <MemoryRouter>
+        <Search />
+      </MemoryRouter>,
+    );
+    const input = screen.getByRole("searchbox");
+    fireEvent.click(input);
+    fireEvent.change(input, { target: { value: "dewfwefe" } });
+    act(() => {
+      vi.advanceTimersByTime(500);
+    });
+    expect(screen.getByText(/no results/i)).toBeInTheDocument();
+    vi.useRealTimers();
+  });
 });
