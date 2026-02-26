@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
-
+import { FiX } from "react-icons/fi";
 type ModalProps = {
   open: boolean;
   title?: string;
@@ -11,8 +11,8 @@ type ModalProps = {
 const Modal = ({ open, title, onClose, children }: ModalProps) => {
   useEffect(() => {
     if (!open) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const prevOverflow = document.body.style.overflow; //saving previous value
+    document.body.style.overflow = "hidden"; // body scroll will be blocked
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -26,7 +26,7 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
   if (!open) return null;
   return createPortal(
     <div className="fixed inset-0 z-50">
-      {" "}
+      {/*It will cover whole area using inset-0 */}{" "}
       {/*This layer will be in front of other layers when it will be opened */}
       {/* backdrop */}
       <div className="absolute inset-0 bg-black/40" onClick={onClose}>
@@ -44,7 +44,7 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
               className="p-2 rounded-lg border border-pulse-border text-pulse-soft hover:text-pulse-danger cursor-pointer"
               aria-label="Close modal"
             >
-              X
+              <FiX />
             </button>
             {/* body */}
             <div className="p-4">{children}</div>
