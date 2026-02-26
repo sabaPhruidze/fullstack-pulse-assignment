@@ -34,7 +34,7 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
         {/* center container */}
         <div className="absolute inset-0 flex items-center justify-center p-4">
           {/* header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-pulse-border">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-pulse-border bg-pulse-bg/90 rounded-3xl">
             <p className="text-sm font-semibold text-pulse-text">
               {title || "Modal"}
             </p>
@@ -47,7 +47,7 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
               <FiX />
             </button>
             {/* body */}
-            <div className="p-4">{children}</div>
+            <div className="p-10">{children}</div>
           </div>
         </div>
       </div>
