@@ -35,17 +35,19 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
         <div className="absolute inset-0 flex items-center justify-center p-4">
           {/* header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-pulse-border bg-pulse-bg/90 rounded-3xl">
-            <p className="text-sm font-semibold text-pulse-text">
-              {title || "Modal"}
-            </p>
-            <button
-              type="button"
-              onClick={onClose}
-              className="p-2 rounded-lg border border-pulse-border text-pulse-soft hover:text-pulse-danger cursor-pointer"
-              aria-label="Close modal"
-            >
-              <FiX />
-            </button>
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-sm font-semibold text-pulse-text">
+                {title || "Modal"}
+              </p>
+              <button
+                type="button"
+                onClick={onClose}
+                className="p-2 rounded-lg border border-pulse-border text-pulse-soft hover:text-pulse-danger cursor-pointer"
+                aria-label="Close modal"
+              >
+                <FiX />
+              </button>
+            </div>
             {/* body */}
             <div className="p-10">{children}</div>
           </div>
