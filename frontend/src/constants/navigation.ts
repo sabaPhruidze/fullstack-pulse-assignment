@@ -5,5 +5,5 @@ export type NavItem = {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", path: "/" },
   { label: "Assets", path: "/assets" },
-  { label: "News", path: "news" },
+  { label: "News", path: "/news" },
 ];
