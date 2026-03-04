@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Assets = lazy(() => import("./pages/Assets"));
+const News = lazy(() => import("./pages/News"));
 function App() {
   return (
     <BrowserRouter
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/assets" element={<Assets />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
