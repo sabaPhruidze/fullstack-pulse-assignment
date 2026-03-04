@@ -25,8 +25,14 @@ const NewsCategoryFilter = ({ value, onChange }: Props) => {
           name="filter news"
           value={value}
           onChange={(e) => onChange(e.target.value as NewsCategoryFilterValue)}
-          className="search-bar w-40 h-8"
-        ></select>
+          className="search-bar w-40 h-8 p-0 pl-3 rounded-b-none cursor-pointer"
+        >
+          {CATEGORIES.map((each) => (
+            <option key={each.value} value={each.value} className="">
+              {each.label}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
