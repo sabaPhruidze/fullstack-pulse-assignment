@@ -1,11 +1,10 @@
 import SectionCard from "./SectionCard";
 import type { ReceiveNews } from "../../types/news";
-import { formatTimesSTamp } from "../../lib/format";
-import { badgeClassByCategory, badgeClassByImpact } from "../../lib/badges";
+import NewsListItem from "./NewsListItem";
 
 type Props = {
   title?: string;
-  subtitle: string;
+  subtitle?: string;
   items: ReceiveNews[];
 
   maxItems?: number;
@@ -38,7 +37,13 @@ const NewsListCard = ({
           <p className="text-sm text-pulse-soft mt-3">no news available</p>
         ) : (
           visibleItems.map((item, idx) => {
-            return <div></div>;
+            return (
+              <NewsListItem
+                key={item.id}
+                item={item}
+                showDivider={idx !== visibleItems.length - 1}
+              />
+            );
           })
         )}
       </div>
