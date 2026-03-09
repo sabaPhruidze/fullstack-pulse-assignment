@@ -7,7 +7,7 @@ export type NewsCategory =
   | "regulatory";
 export type NewsImpact = "low" | "medium" | "high" | "critical";
 
-interface ReceiveNews {
+export interface ReceiveNews {
   id: string;
   title: string;
   source: string;
