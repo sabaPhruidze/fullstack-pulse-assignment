@@ -1,6 +1,7 @@
 import PageLayout from "../components/layout/PageLayout";
 import SectionCard from "../components/ui/SectionCard";
 import useAlerts from "../api/hooks/useAlerts";
+import AlertSeveritySummary from "../components/ui/AlertSeveritySummary";
 import type { NewsImpact } from "../types/news";
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
@@ -24,21 +25,12 @@ const Alerts = () => {
           </p>
         )}
         {!isLoading && !isError && (
-          <div className="space-y-4 text-pulse-text">
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-              <div className="rounded-lg border border-pulse-border p-3">
-                Critical: {counts.critical}
-              </div>
-              <div className="rounded-lg border border-pulse-border p-3">
-                High: {counts.high}
-              </div>
-              <div className="rounded-lg border border-pulse-border p-3">
-                medium: {counts.medium}
-              </div>
-              <div className="rounded-lg border border-pulse-border p-3">
-                low: {counts.low}
-              </div>
-            </div>
+          <div className="space-y-4 ">
+            <AlertSeveritySummary {...counts} />
+            <p className="text-sm text-pulse-soft">
+              Total Alerts:{" "}
+              <span className="text-pulse-text">{data?.count}</span>
+            </p>
           </div>
         )}
       </SectionCard>
