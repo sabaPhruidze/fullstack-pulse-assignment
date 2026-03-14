@@ -3,23 +3,25 @@ import SectionCard from "../components/ui/SectionCard";
 import useAlerts from "../api/hooks/useAlerts";
 import AlertSeveritySummary from "../components/ui/AlertSeveritySummary";
 import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
+import { groupAlertsBySeverity } from "../lib/groupAlertsBySeverity";
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
+
+  const items = data?.data ?? [];
+  const groups = groupAlertsBySeverity(items);
+
   const counts: {
     critical: number;
     high: number;
     medium: number;
     low: number;
-  } = { critical: 0, high: 0, medium: 0, low: 0 };
+  } = {
+    critical: groups.critical.length,
+    high: groups.high.length,
+    medium: groups.medium.length,
+    low: groups.low.length,
+  };
 
-  data?.data.forEach((alert) => {
-    counts[alert.severity] += 1;
-  });
-  const criticalAlerts =
-    data?.data.filter((alert) => alert.severity === "critical") ?? [];
-  const highAlerts = data?.data.filter((a) => a.severity === "high") ?? [];
-  const mediumAlerts = data?.data.filter((a) => a.severity === "medium") ?? [];
-  const lowAlerts = data?.data.filter((a) => a.severity === "low") ?? [];
   return (
     <PageLayout
       title="Alerts"
@@ -40,22 +42,22 @@ const Alerts = () => {
             <AlertSeverityGroup
               title="Critical Alerts"
               severity="critical"
-              items={criticalAlerts}
+              items={groups.critical}
             />
             <AlertSeverityGroup
               title="High Alerts"
               severity="high"
-              items={highAlerts}
+              items={groups.high}
             />
             <AlertSeverityGroup
               title="Medium Alerts"
               severity="medium"
-              items={mediumAlerts}
+              items={groups.medium}
             />
             <AlertSeverityGroup
               title="Low Alerts"
               severity="low"
-              items={lowAlerts}
+              items={groups.low}
             />
           </div>
         )}
