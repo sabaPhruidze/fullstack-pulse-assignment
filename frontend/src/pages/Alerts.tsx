@@ -3,7 +3,6 @@ import SectionCard from "../components/ui/SectionCard";
 import useAlerts from "../api/hooks/useAlerts";
 import AlertSeveritySummary from "../components/ui/AlertSeveritySummary";
 import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
-import AlertList from "../components/ui/AlertList";
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
   const counts: {
@@ -18,6 +17,9 @@ const Alerts = () => {
   });
   const criticalAlerts =
     data?.data.filter((alert) => alert.severity === "critical") ?? [];
+  const highAlerts = data?.data.filter((a) => a.severity === "high") ?? [];
+  const mediumAlerts = data?.data.filter((a) => a.severity === "medium") ?? [];
+  const lowAlerts = data?.data.filter((a) => a.severity === "low") ?? [];
   return (
     <PageLayout
       title="Alerts"
@@ -39,6 +41,21 @@ const Alerts = () => {
               title="Critical Alerts"
               severity="critical"
               items={criticalAlerts}
+            />
+            <AlertSeverityGroup
+              title="High Alerts"
+              severity="high"
+              items={highAlerts}
+            />
+            <AlertSeverityGroup
+              title="Medium Alerts"
+              severity="medium"
+              items={mediumAlerts}
+            />
+            <AlertSeverityGroup
+              title="Low Alerts"
+              severity="low"
+              items={lowAlerts}
             />
           </div>
         )}
