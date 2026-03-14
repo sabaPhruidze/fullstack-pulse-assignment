@@ -2,7 +2,7 @@ import PageLayout from "../components/layout/PageLayout";
 import SectionCard from "../components/ui/SectionCard";
 import useAlerts from "../api/hooks/useAlerts";
 import AlertSeveritySummary from "../components/ui/AlertSeveritySummary";
-import AlertListItem from "../components/ui/AlertListItem";
+import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
 import AlertList from "../components/ui/AlertList";
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
@@ -16,6 +16,8 @@ const Alerts = () => {
   data?.data.forEach((alert) => {
     counts[alert.severity] += 1;
   });
+  const criticalAlerts =
+    data?.data.filter((alert) => alert.severity === "critical") ?? [];
   return (
     <PageLayout
       title="Alerts"
@@ -30,10 +32,14 @@ const Alerts = () => {
             {error instanceof Error ? error.message : "Failed to load alert"}
           </p>
         )}
-        {!isLoading && !isError && (
-          <div className="space-y-4 ">
+        {!isLoading && !isError && data && (
+          <div className="space-y-5">
             <AlertSeveritySummary {...counts} />
-            <AlertList items={data?.data || []} />
+            <AlertSeverityGroup
+              title="Critical Alerts"
+              severity="critical"
+              items={criticalAlerts}
+            />
           </div>
         )}
       </SectionCard>
