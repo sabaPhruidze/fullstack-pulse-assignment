@@ -1,16 +1,16 @@
 import { formatTimesSTamp } from "../../lib/format";
 import { badgeClassBySeverity } from "../../lib/badges";
 import type { AlertsData } from "../../types/alerts";
-
+import { formatAlertType } from "../../lib/formatAlertType";
 type Props = {
   item: AlertsData;
   showDivider?: boolean;
 };
 const AlertListItem = ({ item, showDivider = false }: Props) => {
-  const heading = item.title ?? item?.type?.replaceAll("_", " ");
+  const heading = item.title ?? formatAlertType(item.type);
   const assetLabel = item.assetId ?? "GLOBAL";
   const accuracy = item.aiCoreAccuracy
-    ? Math.round(item.aiCoreAccuracy * 100)
+    ? Math.round(item.aiCoreAccuracy * 100) // 92.2 ~ 92 , 92.6 ~93
     : null;
   return (
     <div className="py-2">
@@ -38,9 +38,13 @@ const AlertListItem = ({ item, showDivider = false }: Props) => {
       {(item.actionRequired !== undefined || accuracy !== null) && (
         <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-pulse-soft">
           {item.actionRequired !== undefined && (
-            <span>Action: {item.actionRequired ? "Required" : "No"}</span>
+            <span className="alert-special">
+              Action: {item.actionRequired ? "Required" : "No"}
+            </span>
           )}
-          {accuracy !== null && <span>AI accuracy: {accuracy}%</span>}
+          {accuracy !== null && (
+            <span className="alert-special ">AI accuracy: {accuracy}%</span>
+          )}
         </div>
       )}
       {showDivider && <hr className="mt-4 border-pulse-border" />}

@@ -8,7 +8,7 @@ export interface AlertsData {
   severity: NewsImpact;
   message: string;
   timestamp: string;
-  type?: string;
+  type: string;
   title: string;
   impact?: AlertImpact;
   assetId?: string;
