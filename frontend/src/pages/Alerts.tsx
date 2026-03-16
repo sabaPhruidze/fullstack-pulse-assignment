@@ -54,9 +54,11 @@ const Alerts = () => {
               active={active}
               onToggle={toggleSeverity}
             />
-            {sections.map((section) => (
-              <AlertSeverityGroup key={section.severity} {...section} />
-            ))}
+            {sections.map((section) =>
+              active[section.severity] ? (
+                <AlertSeverityGroup key={section.severity} {...section} />
+              ) : null,
+            )}
           </div>
         )}
       </SectionCard>
