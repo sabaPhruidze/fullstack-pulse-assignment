@@ -1,27 +1,34 @@
+import type { NewsImpact } from "../../types/news";
+
 type Props = {
-  critical: number;
-  high: number;
-  medium: number;
-  low: number;
+  counts: Record<NewsImpact, number>;
+  active: Record<NewsImpact, boolean>;
+  onToggle: (severity: NewsImpact) => void;
 };
 
-const AlertSeveritySummary = ({ critical, high, medium, low }: Props) => {
-  const items = [
-    { label: "Critical", value: critical },
-    { label: "High", value: high },
-    { label: "Medium", value: medium },
-    { label: "Low", value: low },
+const AlertSeveritySummary = ({ counts, active, onToggle }: Props) => {
+  const items: { label: string; value: NewsImpact }[] = [
+    { label: "Critical", value: "critical" },
+    { label: "High", value: "high" },
+    { label: "Medium", value: "medium" },
+    { label: "Low", value: "low" },
   ];
   return (
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-      {items.map((item) => (
-        <div
-          key={item.label}
-          className="rounded-lg border border-pulse-border p-3"
+    <div className="flex flex-wrap gap-2">
+      {items.map(({ value, label }) => (
+        <button
+          key={value}
+          type="button"
+          onClick={() => onToggle(value)}
+          className={`flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold ${
+            active[value]
+              ? "border-pulse-text bg-pulse-surface text-pulse-text"
+              : "border-pulse-border text-pulse-soft"
+          }`}
         >
-          <p className="text-xs font-semibold text-pulse-soft">{item.label}</p>
-          <p className="mt-2 text-lg font-bold text-pulse-text">{item.value}</p>
-        </div>
+          <span>{label}</span>
+          <span>{counts[value]}</span>
+        </button>
       ))}
     </div>
   );

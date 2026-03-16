@@ -1,25 +1,31 @@
+import { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
 import SectionCard from "../components/ui/SectionCard";
 import useAlerts from "../api/hooks/useAlerts";
 import AlertSeveritySummary from "../components/ui/AlertSeveritySummary";
 import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
 import { groupAlertsBySeverity } from "../lib/groupAlertsBySeverity";
+import type { AlertSeverity } from "../types/alerts";
+import type { NewsImpact } from "../types/news";
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
-
+  const [active, setActive] = useState<Record<NewsImpact, boolean>>({
+    critical: false,
+    high: false,
+    medium: true,
+    low: false,
+  });
   const items = data?.data ?? [];
   const groups = groupAlertsBySeverity(items);
 
-  const counts: {
-    critical: number;
-    high: number;
-    medium: number;
-    low: number;
-  } = {
+  const counts: AlertSeverity = {
     critical: groups.critical.length,
     high: groups.high.length,
     medium: groups.medium.length,
     low: groups.low.length,
+  };
+  const toggleSeverity = (severity: NewsImpact) => {
+    setActive((prev) => ({ ...prev, [severity]: !prev[severity] }));
   };
   const sections = [
     { title: "Critical Alerts", severity: "critical", items: groups.critical },
@@ -43,7 +49,11 @@ const Alerts = () => {
         )}
         {!isLoading && !isError && data && (
           <div className="space-y-3">
-            <AlertSeveritySummary {...counts} />
+            <AlertSeveritySummary
+              counts={counts}
+              active={active}
+              onToggle={toggleSeverity}
+            />
             {sections.map((section) => (
               <AlertSeverityGroup key={section.severity} {...section} />
             ))}

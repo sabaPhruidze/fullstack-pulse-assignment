@@ -17,6 +17,12 @@ export interface AlertsData {
   actionRequired?: boolean;
   aiCoreAccuracy?: number;
 }
+export interface AlertSeverity {
+  critical: number;
+  high: number;
+  medium: number;
+  low: number;
+}
 
 export interface Alerts {
   success: boolean;
