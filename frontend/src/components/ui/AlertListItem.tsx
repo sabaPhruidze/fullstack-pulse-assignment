@@ -9,6 +9,9 @@ type Props = {
 const AlertListItem = ({ item, showDivider = false }: Props) => {
   const heading = item.title ?? item?.type?.replaceAll("_", " ");
   const assetLabel = item.assetId ?? "GLOBAL";
+  const accuracy = item.aiCoreAccuracy
+    ? Math.round(item.aiCoreAccuracy * 100)
+    : null;
   return (
     <div className="py-2">
       <div className="flex items-start justify-between gap-3">
@@ -31,6 +34,14 @@ const AlertListItem = ({ item, showDivider = false }: Props) => {
         <p className="mt-2 text-xs font-semibold text-pulse-soft">
           Affected: {item.affectedAssets.join(", ")}
         </p>
+      )}
+      {(item.actionRequired !== undefined || accuracy !== null) && (
+        <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-pulse-soft">
+          {item.actionRequired !== undefined && (
+            <span>Action: {item.actionRequired ? "Required" : "No"}</span>
+          )}
+          {accuracy !== null && <span>AI accuracy: {accuracy}%</span>}
+        </div>
       )}
       {showDivider && <hr className="mt-4 border-pulse-border" />}
     </div>
