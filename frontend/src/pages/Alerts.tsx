@@ -7,14 +7,16 @@ import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
 import { groupAlertsBySeverity } from "../lib/groupAlertsBySeverity";
 import type { AlertSeverity } from "../types/alerts";
 import type { NewsImpact } from "../types/news";
+
+const initialOpen: Record<NewsImpact, boolean> = {
+  critical: false,
+  high: false,
+  medium: true,
+  low: false,
+};
 const Alerts = () => {
   const { data, isLoading, isError, error } = useAlerts();
-  const [active, setActive] = useState<Record<NewsImpact, boolean>>({
-    critical: false,
-    high: false,
-    medium: true,
-    low: false,
-  });
+  const [openSections, setOpenSections] = useState(initialOpen);
   const items = data?.data ?? [];
   const groups = groupAlertsBySeverity(items);
 
@@ -25,7 +27,7 @@ const Alerts = () => {
     low: groups.low.length,
   };
   const toggleSeverity = (severity: NewsImpact) => {
-    setActive((prev) => ({ ...prev, [severity]: !prev[severity] }));
+    setOpenSections((prev) => ({ ...prev, [severity]: !prev[severity] }));
   };
   const sections = [
     { title: "Critical Alerts", severity: "critical", items: groups.critical },
@@ -51,11 +53,11 @@ const Alerts = () => {
           <div className="space-y-3">
             <AlertSeveritySummary
               counts={counts}
-              active={active}
+              active={openSections}
               onToggle={toggleSeverity}
             />
             {sections.map((section) =>
-              active[section.severity] ? (
+              openSections[section.severity] ? (
                 <AlertSeverityGroup key={section.severity} {...section} />
               ) : null,
             )}
