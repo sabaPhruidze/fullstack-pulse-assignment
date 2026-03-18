@@ -1,15 +1,22 @@
 import AlertList from "./AlertList";
 import type { AlertsData } from "../../types/alerts";
-import type { NewsImpact } from "../../types/news";
+import type { News, NewsImpact } from "../../types/news";
 import { useState } from "react";
 
 type Props = {
   title: string;
   severity: NewsImpact;
   items: AlertsData[];
+  isOpen: boolean;
+  onToggle: (severity: NewsImpact) => void;
 };
-const AlertSeverityGroup = ({ title, severity, items }: Props) => {
-  const [isOpen, setIsOpen] = useState(severity === "medium");
+const AlertSeverityGroup = ({
+  title,
+  severity,
+  items,
+  isOpen,
+  onToggle,
+}: Props) => {
   if (!items.length) return null;
 
   const severityClasses = {
@@ -22,7 +29,7 @@ const AlertSeverityGroup = ({ title, severity, items }: Props) => {
     <section className="space-y-1">
       <button
         type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => onToggle(severity)}
         className={`flex w-full items-center justify-between rounded-lg border p-3 text-left ${severityClasses[severity]}`}
       >
         <div>
