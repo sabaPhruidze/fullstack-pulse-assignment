@@ -1,9 +1,11 @@
-import React from 'react'
+import type { FallbackProps } from "react-error-boundary";
 
-const ErrorFallBack = () => {
+const ErrorFallBack = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
-    <div>ErrorFallBack</div>
-  )
-}
+    <div className="min-h-[60vh] flex items-center justify-center px-4">
+      saba
+    </div>
+  );
+};
 
-export default ErrorFallBack
+export default ErrorFallBack;

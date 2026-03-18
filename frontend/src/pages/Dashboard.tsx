@@ -11,6 +11,7 @@ const Dashboard = () => {
   const list = assets?.data ?? [];
   const news = data?.news ?? { success: true, count: 0, data: [] };
   const alerts = data?.alerts ?? { success: true, count: 0, data: [] };
+  throw new Error();
   return (
     <PageLayout
       title="Dashboard"

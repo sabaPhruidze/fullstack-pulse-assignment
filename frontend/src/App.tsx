@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallBack from "./components/shared/ErrorFallBack";
+import ErrorFallback from "./components/shared/ErrorFallback";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Assets = lazy(() => import("./pages/Assets"));
@@ -16,7 +16,7 @@ function App() {
         v7_relativeSplatPath: true,
       }}
     >
-      <ErrorBoundary FallbackComponent={ErrorFallBack}>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
