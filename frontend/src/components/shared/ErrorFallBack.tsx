@@ -1,11 +1,24 @@
 import type { FallbackProps } from "react-error-boundary";
 
-const ErrorFallBack = ({ error, resetErrorBoundary }: FallbackProps) => {
+const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
-      saba
+      <div className="max-w-md w-full bg-white border border-gray-200 rounded-lg p-6 text-center">
+        <div>Something went wrong</div>
+      </div>
+      <p className="text-sm text-gray-600 mt-2 mb-4">
+        {error instanceof Error ? error.message : "An unexpected error occured"}
+      </p>
+      <div className="flex-gap-3 justify-center">
+        <button
+          onClick={resetErrorBoundary}
+          className="px-4 py-2 rounded bg-gray-900 text-white hover:bg-gray-800 vursor-pointer"
+        >
+          Try again
+        </button>
+      </div>
     </div>
   );
 };
 
-export default ErrorFallBack;
+export default ErrorFallback;
