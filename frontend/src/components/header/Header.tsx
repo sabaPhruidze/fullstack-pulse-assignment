@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import Search from "./Search";
-import SUNNY from "../../assets/icons/sunny.png";
+import SUN from "../../assets/icons/sun.png";
+import MOON from "../../assets/icons/moon.png";
 import SideDrawer from "./SideDrawer";
 
 const Header = () => {
@@ -25,7 +26,7 @@ const Header = () => {
             aria-label="Theme"
             className="bg-pulse-surface2 text-white border-pulse-border rounded-lg border-2 w-10 h-10 p-2"
           >
-            <img src={SUNNY} alt="sun yellow and bright" className="w-5 h-5" />
+            <img src={SUN} alt="sun yellow and bright" className="w-5 h-5" />
           </button>
         </div>
       </div>
