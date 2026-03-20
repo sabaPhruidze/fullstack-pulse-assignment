@@ -7,6 +7,7 @@ import AlertSeverityGroup from "../components/ui/AlertSeverityGroup";
 import { groupAlertsBySeverity } from "../lib/groupAlertsBySeverity";
 import type { AlertSeverity } from "../types/alerts";
 import type { NewsImpact } from "../types/news";
+import Loading from "../components/shared/Loading";
 
 const initialOpen: Record<NewsImpact, boolean> = {
   critical: false,
@@ -41,9 +42,7 @@ const Alerts = () => {
       subtitle="All alerts, grouped by severity for faster triage."
     >
       <SectionCard title="Alert Center">
-        {isLoading && (
-          <p className="text-sm text-pulse-soft">Loading alert...</p>
-        )}
+        {isLoading && <Loading />}
         {isError && (
           <p className="text-sm text-red-400">
             {error instanceof Error ? error.message : "Failed to load alert"}

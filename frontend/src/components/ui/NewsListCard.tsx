@@ -1,6 +1,7 @@
 import SectionCard from "./SectionCard";
 import type { ReceiveNews } from "../../types/news";
 import NewsListItem from "./NewsListItem";
+import Loading from "../shared/Loading";
 
 type Props = {
   title?: string;
@@ -30,7 +31,7 @@ const NewsListCard = ({
       )}
       <div className="mt-3">
         {isLoading ? (
-          <p className="text-sm text-pulse-soft mt-3">Loading...</p>
+          <Loading />
         ) : isError ? (
           <p>{errorMessage || "Error loading news"}</p>
         ) : Object.is(visibleItems.length, 0) ? (

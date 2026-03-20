@@ -1,5 +1,6 @@
 import { SortDir } from "../../lib/sortAssets";
 import type { TopMover } from "../../types/assets";
+import Loading from "../shared/Loading";
 import SectionCard from "./SectionCard";
 type Props = {
   title?: string;
@@ -45,7 +46,7 @@ const AssetsListCard = ({
 
       <div className="mt-2 border-t border-pulse-border/60">
         {isLoading ? (
-          <p className="mt-3 text-sm text-pulse-soft">Loading...</p>
+          <Loading />
         ) : isError ? (
           <p className="mt-3 text-sm text-red-400">
             {errorMessage || "Error loading assets"}
