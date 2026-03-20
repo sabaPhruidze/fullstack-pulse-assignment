@@ -11,7 +11,7 @@ const SideDrawer = ({ open, onClose }: Props) => {
     <AnimatePresence>
       {open && (
         <motion.aside
-          className="fixed left-0 top-0 h-screen w-[260px] bg-pulse-surface2 border-r border-pulse-border z-50"
+          className="fixed left-0 top-0 z-50 h-screen w-[260px] border-r border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-900"
           initial={{ x: -280 }}
           animate={{ x: 0 }}
           exit={{ x: -280 }}

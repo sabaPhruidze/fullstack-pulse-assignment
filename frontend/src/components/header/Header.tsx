@@ -18,7 +18,7 @@ const Header = () => {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="bg-pulse-surface2 text-white border-pulse-border rounded-lg p-2 border-2"
+          className="rounded-lg border border-slate-300 bg-white p-2 md:hidden dark:border-slate-600 dark:bg-slate-800"
           aria-label="Open menu"
         >
           <Menu className="w-5 h-5" />
