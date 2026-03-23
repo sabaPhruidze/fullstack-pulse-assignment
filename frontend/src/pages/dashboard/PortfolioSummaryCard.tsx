@@ -13,12 +13,18 @@ function PortfolioSummaryCard({ summary }: Props) {
   return (
     <SectionCard title="Portfolio Summary">
       <div className="my-3">
-        <p className="text-pulse-soft font-semibold text-sm">Total Value</p>
-        <strong className="text-pulse-text text-2xl">{totalValue}</strong>
+        <p className="text-sm font-semibold text-slate-500 dark:text-pulse-soft">
+          Total Value
+        </p>
+        <strong className="text-2xl text-slate-900 dark:text-pulse-text">
+          {totalValue}
+        </strong>
       </div>
       <div>
-        <p className="text-pulse-soft font-semibold text-sm">Total Change</p>
-        <strong className="text-pulse-success/80 ">
+        <p className="font-semibold text-sm text-slate-500 dark:text-pulse-soft">
+          Total Change
+        </p>
+        <strong className="text-emarald-600 dark:text-pulse-success/80">
           ${totalChange} (+{totalChangePercent}%)
         </strong>
       </div>

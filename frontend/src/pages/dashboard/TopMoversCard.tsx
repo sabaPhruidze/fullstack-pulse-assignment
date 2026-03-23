@@ -16,22 +16,26 @@ function TopMoversCard({ title, assets = [], mode }: Props) {
     : [...filtered].sort((a, b) => a.changePercent - b.changePercent);
   const topThree = sorting.slice(0, 3);
   const percentClass =
-    mode === "gainers" ? "text-pulse-success/80" : "text-pulse-danger";
+    mode === "gainers"
+      ? "text-emerald-600 dark:text-pulse-success/80"
+      : "text-red-600 dark:text-pulse-danger";
   return (
     <SectionCard title={title}>
       {topThree.map(
         ({ id, symbol, name, sector, currentPrice, changePercent }, idx) => (
           <div key={id}>
             <div className="flex items-center justify-between">
-              <p className="text-pulse-text font-bold mt-3">
+              <p className="font-bold mt-3 text-slate-900 dark:text-pulse-text ">
                 {symbol}{" "}
-                <span className="font-semibold text-pulse-soft text-[14px]">
+                <span className="font-semibold text-[14px] text-slate-500 dark:text-pulse-soft ">
                   {name}
                 </span>
               </p>
-              <p className="text-right text-pulse-soft">{sector || "Crypto"}</p>
+              <p className="text-right text-slate-500 dark:text-pulse-soft">
+                {sector || "Crypto"}
+              </p>
             </div>
-            <p className="text-xs text-pulse-soft font-semibold mb-3">
+            <p className="text-xs text-slate-500 font-semibold mb-3 dark:text-pulse-soft">
               ${currentPrice}
             </p>
             <p className={`${percentClass} text-sm font-bold text-right`}>
@@ -40,7 +44,7 @@ function TopMoversCard({ title, assets = [], mode }: Props) {
                 : `${changePercent}%`}
             </p>
             {idx !== topThree.length - 1 && (
-              <hr className="border-pulse-border mt-5" />
+              <hr className="border-slate-400 mt-5 dark:border-pulse-border" />
             )}
           </div>
         ),
