@@ -29,7 +29,7 @@ const MobileSideBar = ({ open, onClose }: Props) => {
               type="button"
               onClick={onClose}
               aria-label="Close menu"
-              className="w-9 h-9 rounded-lg border border-pulse-border bg-pulse-surface text-pulse-text flex items-center justify-center hover:scale-90 duration-300"
+              className="w-9 h-9 rounded-lg border border-pulse-border text-pulse-secondary dark:bg-pulse-surface dark:text-pulse-text flex items-center justify-center hover:scale-90 duration-300"
             >
               ✕
             </button>
