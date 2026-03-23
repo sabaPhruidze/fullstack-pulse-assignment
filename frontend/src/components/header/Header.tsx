@@ -3,7 +3,7 @@ import { Menu } from "lucide-react";
 import Search from "./Search";
 import SUN from "../../assets/icons/sun.png";
 import MOON from "../../assets/icons/moon.png";
-import SideDrawer from "./SideDrawer";
+import MobileSideBar from "./MobileSideBar";
 import useThemeStore from "../../store/useThemeStore";
 
 const Header = () => {
@@ -36,7 +36,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <SideDrawer open={open} onClose={() => setOpen(false)} />
+      <MobileSideBar open={open} onClose={() => setOpen(false)} />
     </>
   );
 };

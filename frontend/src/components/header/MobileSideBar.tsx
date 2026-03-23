@@ -6,7 +6,7 @@ type Props = {
   onClose: () => void;
 };
 
-const SideDrawer = ({ open, onClose }: Props) => {
+const MobileSideBar = ({ open, onClose }: Props) => {
   return (
     <AnimatePresence>
       {open && (
@@ -55,4 +55,4 @@ const SideDrawer = ({ open, onClose }: Props) => {
   );
 };
 
-export default SideDrawer;
+export default MobileSideBar;
