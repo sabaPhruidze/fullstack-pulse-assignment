@@ -27,15 +27,21 @@ const NewsListCard = ({
   return (
     <SectionCard title={title}>
       {subtitle && (
-        <p className="text-xs text-pulse-soft font-semibold mt-1">{subtitle}</p>
+        <p className="text-xs font-semibold mt-1 text-slate-500 dark:text-pulse-soft">
+          {subtitle}
+        </p>
       )}
       <div className="mt-3">
         {isLoading ? (
           <Loading />
         ) : isError ? (
-          <p>{errorMessage || "Error loading news"}</p>
+          <p className="text-sm text-red-600 dark:text-pulse-danger">
+            {errorMessage || "Error loading news"}
+          </p>
         ) : Object.is(visibleItems.length, 0) ? (
-          <p className="text-sm text-pulse-soft mt-3">no news available</p>
+          <p className="text-sm mt-3  text-slate-500 dark:text-pulse-soft">
+            no news available
+          </p>
         ) : (
           visibleItems.map((item, idx) => {
             return (
