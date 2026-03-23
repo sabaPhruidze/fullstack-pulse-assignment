@@ -13,7 +13,9 @@ const NewsListItem = ({ item, showDivider = false }: Props) => {
   return (
     <div className="py-2">
       <div className=" flex items-start justify-between gap-3">
-        <p className="text-pulse-text text-sm font-bold">{item.title}</p>
+        <p className="text-sm font-bold text-slate-900 dark:text-pulse-text ">
+          {item.title}
+        </p>
         <div className="flex gap-2 shrink-0">
           <span
             className={`px-2 py-1 rounded-full text-sm font-semibold ${badgeClassByCategory(item.category)}`}
@@ -27,27 +29,25 @@ const NewsListItem = ({ item, showDivider = false }: Props) => {
           </span>
         </div>
       </div>
-      <p className="mt-2 text-xs font-semibold text-pulse-soft">
+      <p className="mt-2 text-xs font-semibold text-slate-500 dark:text-pulse-soft">
         {item.source} • {formatTimesSTamp(item.timestamp)}
       </p>
-      <p className="mt-2 text-sm font-semibold text-pulse-muted">
+      <p className="mt-2 text-sm font-semibold text-slate-600 dark:text-pulse-muted">
         {item.summary}
       </p>
       {item.tags.length && (
         <div className="mt-3 flex flex-wrap gap-2">
           {visibleTags.map((tag) => (
-            <span className="rounded-full border border-pulse-border bg-pulse-border/40 px-2 py-1 text-sm font-semibold text-pulse-soft">
-              #{tag}
-            </span>
+            <span className="tag-additional">#{tag}</span>
           ))}
           {remainingTags > 0 && (
-            <span className="rounded-full border border-pulse-border bg-pulse-border/40 px-2 py-1 text-sm font-semibold text-pulse-soft">
-              +{remainingTags}
-            </span>
+            <span className="tag-additional">+{remainingTags}</span>
           )}
         </div>
       )}
-      {showDivider && <hr className="mt-4 border-pulse-border" />}
+      {showDivider && (
+        <hr className="mt-4 border-slate-400 dark:border-pulse-border" />
+      )}
     </div>
   );
 };
