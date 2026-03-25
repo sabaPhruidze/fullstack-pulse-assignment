@@ -30,7 +30,7 @@ code {
     @apply text-slate-800 hover:bg-pulse-primary/10 hover:text-pulse-primary dark:text-pulse-soft dark:hover:bg-pulse-surface dark:hover:text-white;
   }
   .tags-asset {
-    @apply text-xs px-2 py-1 rounded border border-pulse-border text-pulse-soft;
+    @apply rounded-full border border-slate-300 bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600 dark:border-pulse-border dark:bg-pulse-border/40 dark:text-pulse-soft;
   }
   .tag-additional {
     @apply rounded-full border px-2 py-1 text-sm font-semibold border-slate-300 bg-slate-100 text-slate-600  dark:text-pulse-soft dark:border-pulse-border dark:bg-pulse-border/40;
