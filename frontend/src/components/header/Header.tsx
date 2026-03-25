@@ -25,9 +25,7 @@ const Header = () => {
         </button>
         <Search />
         <div className="flex gap-3 items-center">
-          <p className="text-xl font-bold text-sky-700 dark:text-pulse-secondary">
-            Pulse
-          </p>
+          <p className="text-xl font-bold text-pulse-secondary">Pulse</p>
           <button
             type="button"
             aria-label="Theme"
