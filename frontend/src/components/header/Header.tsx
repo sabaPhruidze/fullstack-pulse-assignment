@@ -14,11 +14,11 @@ const Header = () => {
   const themeAlt = theme === "dark" ? "moon icon" : "sun icon";
   return (
     <>
-      <div className="w-full h-16 flex  justify-between items-center px-4 border-2 md:border-l-0 border-slate-400 bg-white text-slate-900 dark:text-pulse-text dark:bg-pulse-surface2 dark:border-pulse-border ">
+      <div className="w-full h-16 flex  justify-between items-center px-4 border-2 md:border-l-0 border-slate-300 bg-white text-slate-800 dark:text-pulse-text dark:bg-pulse-surface2 dark:border-pulse-border ">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="rounded-lg border border-slate-400 bg-white p-2 md:hidden text-slate-900 dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-text"
+          className="rounded-lg border border-slate-300 bg-white p-2 md:hidden text-slate-800 dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-text"
           aria-label="Open menu"
         >
           <Menu className="w-5 h-5" />
@@ -30,7 +30,7 @@ const Header = () => {
             type="button"
             aria-label="Theme"
             onClick={toggleTheme}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-400 bg-white dark:border-pulse-border dark:bg-pulse-surface"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-white dark:border-pulse-border dark:bg-pulse-surface"
           >
             <img src={themeIcon} alt={themeAlt} className="w-5 h-5" />
           </button>

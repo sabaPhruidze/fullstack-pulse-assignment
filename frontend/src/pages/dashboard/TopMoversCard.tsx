@@ -25,7 +25,7 @@ function TopMoversCard({ title, assets = [], mode }: Props) {
         ({ id, symbol, name, sector, currentPrice, changePercent }, idx) => (
           <div key={id}>
             <div className="flex items-center justify-between">
-              <p className="font-bold mt-3 text-slate-900 dark:text-pulse-text ">
+              <p className="font-bold mt-3 text-slate-800 dark:text-pulse-text ">
                 {symbol}{" "}
                 <span className="font-semibold text-[14px] text-slate-500 dark:text-pulse-soft ">
                   {name}
@@ -44,7 +44,7 @@ function TopMoversCard({ title, assets = [], mode }: Props) {
                 : `${changePercent}%`}
             </p>
             {idx !== topThree.length - 1 && (
-              <hr className="border-slate-400 mt-5 dark:border-pulse-border" />
+              <hr className="border-slate-300 mt-5 dark:border-pulse-border" />
             )}
           </div>
         ),

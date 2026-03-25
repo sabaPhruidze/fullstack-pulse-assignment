@@ -13,7 +13,7 @@ const NewsListItem = ({ item, showDivider = false }: Props) => {
   return (
     <div className="py-2">
       <div className=" flex items-start justify-between gap-3">
-        <p className="text-sm font-bold text-slate-900 dark:text-pulse-text ">
+        <p className="text-sm font-bold text-slate-800 dark:text-pulse-text ">
           {item.title}
         </p>
         <div className="flex gap-2 shrink-0">
@@ -46,7 +46,7 @@ const NewsListItem = ({ item, showDivider = false }: Props) => {
         </div>
       )}
       {showDivider && (
-        <hr className="mt-4 border-slate-400 dark:border-pulse-border" />
+        <hr className="mt-4 border-slate-300 dark:border-pulse-border" />
       )}
     </div>
   );

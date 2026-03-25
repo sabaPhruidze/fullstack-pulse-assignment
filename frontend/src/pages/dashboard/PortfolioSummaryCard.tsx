@@ -16,7 +16,7 @@ function PortfolioSummaryCard({ summary }: Props) {
         <p className="text-sm font-semibold text-slate-500 dark:text-pulse-soft">
           Total Value
         </p>
-        <strong className="text-2xl text-slate-900 dark:text-pulse-text">
+        <strong className="text-2xl text-slate-800 dark:text-pulse-text">
           {totalValue}
         </strong>
       </div>

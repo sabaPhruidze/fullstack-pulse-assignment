@@ -3,7 +3,7 @@ import { NAV_ITEMS } from "../../constants/navigation";
 
 const DesktopSideBar = () => {
   return (
-    <aside className="hidden md:flex md:w-60 md:flex-col md:border-r md:border-slate-400 md:bg-white dark:md:border-pulse-border dark:md:bg-pulse-surface2">
+    <aside className="hidden md:flex md:w-60 md:flex-col md:border-r md:border-slate-300 md:bg-white dark:md:border-pulse-border dark:md:bg-pulse-surface2">
       <div className="flex h-16 items-center border-b border-slate-300 px-4 dark:border-pulse-border">
         <p className="text-xl font-bold text-pulse-secondary">Pulse</p>
       </div>

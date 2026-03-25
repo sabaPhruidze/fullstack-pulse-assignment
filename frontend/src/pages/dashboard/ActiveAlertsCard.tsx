@@ -17,7 +17,7 @@ const ActiveAlertsCard = ({ alerts }: Props) => {
         {items.map((item, idx) => (
           <div className="py-2" key={item.id}>
             <div className="flex items-start justify-between gap-3">
-              <p className=" font-bold text-sm text-slate-900 dark:text-pulse-text">
+              <p className=" font-bold text-sm text-slate-800 dark:text-pulse-text">
                 {item.message}
               </p>
               <span
@@ -31,7 +31,7 @@ const ActiveAlertsCard = ({ alerts }: Props) => {
             </p>
             <div className="text-xs font-semibold mt-2 text-slate-500 dark:text-pulse-soft">
               {idx !== items.length - 1 && (
-                <hr className="mt-4 border-slate-400 dark:border-pulse-border" />
+                <hr className="mt-4 border-slate-300 dark:border-pulse-border" />
               )}
             </div>
           </div>

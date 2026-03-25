@@ -4,7 +4,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const message =
     error instanceof Error ? error.message : "An unexpected error occured";
   return (
-    <div className="flex-col h-screen flex items-center justify-center px-4 text-slate-900 dark:bg-pulse-bg dark:text-pulse-text">
+    <div className="flex-col h-screen flex items-center justify-center px-4 text-slate-800 dark:bg-pulse-bg dark:text-pulse-text">
       <div className="max-w-md w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-pulse-surface2">
         <div className="mb-4">
           <p className="text-sm font-semibold text-indigo-600 dark:text-pulse-secondary">
@@ -26,7 +26,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-pulse-border dark:text-pulse-text dark:bg-pulse-surface cursor-pointer"
+            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-800 transition hover:bg-slate-100 dark:border-pulse-border dark:text-pulse-text dark:bg-pulse-surface cursor-pointer"
           >
             Reload page
           </button>

@@ -59,7 +59,7 @@ const Search = () => {
         className="search-bar"
       />
       {open && (
-        <div className="absolute left-5 right-5 top-[3.1rem]  border rounded-lg overflow-hidden z-50 bg-white border-slate-400  dark:bg-pulse-surface2 dark:border-pulse-border">
+        <div className="absolute left-5 right-5 top-[3.1rem]  border rounded-lg overflow-hidden z-50 bg-white border-slate-300  dark:bg-pulse-surface2 dark:border-pulse-border">
           {filteredNavItems.length === 0 ? (
             <div className="px-3 py-2 font-semibold text-slate-500 dark:text-pulse-soft">
               No Results
@@ -70,7 +70,7 @@ const Search = () => {
                 key={item.path}
                 type="button"
                 onClick={() => navigateTo(item.path)}
-                className="w-full text-left px-3 py-2 text-slate-900 hover:bg-slate-100 dark:hover:bg-pulse-surface dark:text-pulse-text"
+                className="w-full text-left px-3 py-2 text-slate-800 hover:bg-slate-100 dark:hover:bg-pulse-surface dark:text-pulse-text"
               >
                 {item.label}
               </button>

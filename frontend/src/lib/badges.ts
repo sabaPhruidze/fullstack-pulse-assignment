@@ -2,7 +2,7 @@ import type { NewsCategory, NewsImpact } from "../types/news";
 import type { AlertsData } from "../types/alerts";
 
 const neutralBadge =
-  "border border-slate-400 bg-slate-100 text-slate-700 dark:border-pulse-border dark:bg-pulse-border/40 dark:text-pulse-soft";
+  "border border-slate-300 bg-slate-100 text-slate-800 dark:border-pulse-border dark:bg-pulse-border/40 dark:text-pulse-soft";
 const mediumBadge =
   "border border-yellow-300 bg-yellow-50 text-yellow-700 dark:border-yellow-500/20 dark:bg-yellow-500/10 dark:text-yellow-300";
 const highBadge =

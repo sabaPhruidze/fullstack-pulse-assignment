@@ -18,7 +18,7 @@ code {
 }
 @layer components {
   .search-bar {
-    @apply w-full rounded-lg border-2 border-slate-400 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-500 transition-shadow duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pulse-primary dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-text dark:placeholder:text-pulse-soft;
+    @apply w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2 text-slate-800 placeholder:text-slate-500 transition-shadow duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pulse-primary dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-text dark:placeholder:text-pulse-soft;
   }
   .link-base {
     @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-semibold;
@@ -27,13 +27,13 @@ code {
     @apply bg-pulse-primary text-white;
   }
   .link-iddle {
-    @apply text-slate-700 hover:bg-pulse-primary/10 hover:text-pulse-primary dark:text-pulse-soft dark:hover:bg-pulse-surface dark:hover:text-white;
+    @apply text-slate-800 hover:bg-pulse-primary/10 hover:text-pulse-primary dark:text-pulse-soft dark:hover:bg-pulse-surface dark:hover:text-white;
   }
   .tags-asset {
     @apply text-xs px-2 py-1 rounded border border-pulse-border text-pulse-soft;
   }
   .tag-additional {
-    @apply rounded-full border px-2 py-1 text-sm font-semibold border-slate-400 bg-slate-100 text-slate-600  dark:text-pulse-soft dark:border-pulse-border dark:bg-pulse-border/40;
+    @apply rounded-full border px-2 py-1 text-sm font-semibold border-slate-300 bg-slate-100 text-slate-600  dark:text-pulse-soft dark:border-pulse-border dark:bg-pulse-border/40;
   }
   .alert-special {
     @apply rounded-full border border-pulse-border bg-pulse-surface px-2 text-[11px] font-bold text-pulse-text p-2;
