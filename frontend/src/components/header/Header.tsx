@@ -30,7 +30,7 @@ const Header = () => {
             type="button"
             aria-label="Theme"
             onClick={toggleTheme}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border-slate-400 bg-white dark:border-pulse-border dark:bg-pulse-surface"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-400 bg-white dark:border-pulse-border dark:bg-pulse-surface"
           >
             <img src={themeIcon} alt={themeAlt} className="w-5 h-5" />
           </button>

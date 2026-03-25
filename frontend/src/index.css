@@ -27,7 +27,7 @@ code {
     @apply bg-pulse-primary text-white;
   }
   .link-iddle {
-    @apply text-pulse-soft  hover:text-white hover:bg-indigo-500/60 dark:hover:bg-pulse-surface2;
+    @apply text-slate-700 hover:bg-pulse-primary/10 hover:text-pulse-primary dark:text-pulse-soft dark:hover:bg-pulse-surface dark:hover:text-white;
   }
   .tags-asset {
     @apply text-xs px-2 py-1 rounded border border-pulse-border text-pulse-soft;
