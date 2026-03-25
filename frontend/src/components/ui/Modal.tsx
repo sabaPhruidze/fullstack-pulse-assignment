@@ -34,15 +34,18 @@ const Modal = ({ open, title, onClose, children }: ModalProps) => {
         {/* center container */}
         <div className="absolute inset-0 flex items-center justify-center p-4 ">
           {/* header */}
-          <div className="px-4 py-3 border-b border-pulse-border bg-pulse-bg/90 rounded-3xl">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="px-4 py-3 border-b rounded-3xl border-slate-300 bg-white dark:border-pulse-border dark:bg-pulse-bg/90"
+          >
             <div className="flex place-items-end justify-between gap-2">
-              <p className="text-2xl font-semibold text-pulse-text">
+              <p className="text-2xl font-semibold text-slate-800 dark:text-pulse-text">
                 {title || "Modal"}
               </p>
               <button
                 type="button"
                 onClick={onClose}
-                className="p-2 rounded-lg border border-pulse-border text-pulse-soft hover:text-pulse-danger cursor-pointer"
+                className="p-2 rounded-lg border cursor-pointer border-slate-300 text-slate-500 hover:text-red-600 dark:border-pulse-border dark:text-pulse-soft dark:hover:text-pulse-danger"
                 aria-label="Close modal"
               >
                 <FiX />

@@ -29,7 +29,7 @@ const AssetsListCard = ({
 }: Props) => {
   return (
     <SectionCard title="Assets">
-      <div className=" text-pulse-soft font-semibold flex justify-between mt-5">
+      <div className="font-semibold flex justify-between mt-5 text-slate-500 dark:text-pulse-soft">
         <button
           type="button"
           onClick={onToggleSort}
@@ -44,17 +44,19 @@ const AssetsListCard = ({
         <span>Change %</span>
       </div>
 
-      <div className="mt-2 border-t border-pulse-border/60">
+      <div className="mt-2 border-t border-slate-300 dark:border-pulse-border/60">
         {isLoading ? (
           <Loading />
         ) : isError ? (
-          <p className="mt-3 text-sm text-red-400">
+          <p className="mt-3 text-sm text-red-600 dark:text-pulse-danger">
             {errorMessage || "Error loading assets"}
           </p>
         ) : items.length === 0 ? (
-          <p className="mt-3 text-sm text-pulse-soft">No results.</p>
+          <p className="mt-3 text-sm text-slate-500 dark:text-pulse-soft">
+            No results.
+          </p>
         ) : (
-          <div className="mt-2 divide-y divide-pulse-border/60 ">
+          <div className="mt-2 divide-y divide-slate-300 dark:divide-pulse-border/60">
             {items.map((asset) => {
               const isUp = asset.changePercent >= 0;
               return (
@@ -63,24 +65,28 @@ const AssetsListCard = ({
                   type="button"
                   onClick={() => onAssetClick?.(asset)} // if onAssetClick exist than it calls that function passing asset
                   onMouseEnter={() => onAssetHover?.(asset)} // on button until w-full is written it contains only the part that is necessary
-                  className="w-full py-3 flex items-center justify-between text-left rounded cursor-pointer hover:bg-pulse-card/40"
+                  className="w-full py-3 flex items-center justify-between text-left rounded cursor-pointer hover:bg-pulse-primary/10 dark:hover:bg-pulse-card/40"
                 >
                   <div>
-                    <p className="text-pulse-text font-bold text-sm">
+                    <p className="font-bold text-sm text-slate-800 dark:text-pulse-text">
                       {asset.symbol}
                     </p>
-                    <p className="text-pulse-soft text-xs">{asset.name}</p>
+                    <p className="text-xs text-slate-500 dark:text-pulse-soft">
+                      {asset.name}
+                    </p>
                   </div>
                   <div className="text-right">
                     <p
                       className={[
                         "text-sm font-bold",
-                        isUp ? "text-pulse-success" : "text-pulse-danger",
+                        isUp
+                          ? "text-emerald-600 dark:text-pulse-success"
+                          : "text-red-600 dark:text-pulse-danger",
                       ].join(" ")}
                     >
                       {formatPct(asset.changePercent)}
                     </p>
-                    <p className="text-pulse-muted font-semibold">
+                    <p className=" font-semibold text-slate-600 dark:text-pulse-muted">
                       ${asset.currentPrice.toLocaleString()}
                     </p>
                   </div>
