@@ -13,11 +13,11 @@ function PageLayout({ title, subtitle, children }: Props) {
         <DesktopSideBar />
         <div className="flex-1">
           <Header />
-          <main className="p-4 sm:p-5 md:p-6">
-            <h1 className="mb-2 text-2xl font-bold text-pulse-text dark:text-slate-100 sm:text-3xl">
+          <main className="p-4 sm:p-5 md:p-6 lg:p-8">
+            <h1 className="mb-2 text-2xl font-bold text-slate-900 dark:text-pulse-text sm:text-3xl">
               {title}
             </h1>
-            <p className="mn-4 text-sm font-semibold text-pulse-soft dark:text-slate-400">
+            <p className="mn-4 text-sm font-semibold text-slate-500 dark:text-pulse-soft">
               {subtitle}
             </p>
 
