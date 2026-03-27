@@ -26,7 +26,9 @@ const NewsCategoryFilter = ({ value, onChange }: Props) => {
     CATEGORIES.find((category) => category.value === value) ?? CATEGORIES[0];
   return (
     <div className="mt-4 flex justify-between items-center">
-      <p className=" text-pulse-soft font-semibold">Filter by category</p>
+      <p className=" text-pulse-soft font-semibold dark:text-pulse-soft">
+        Filter by category
+      </p>
       <div className="relative">
         <Listbox value={value} onChange={onChange}>
           {({ open }) => (
@@ -37,7 +39,7 @@ const NewsCategoryFilter = ({ value, onChange }: Props) => {
                 `}
               >
                 <span className="truncate">{selected.label}</span>
-                <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-pulse-soft">
+                <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 dark:text-pulse-soft">
                   <svg
                     width="16"
                     height="16"
@@ -53,14 +55,14 @@ const NewsCategoryFilter = ({ value, onChange }: Props) => {
                   </svg>
                 </span>
               </ListboxButton>
-              <ListboxOptions className=" absolute right-0 z-50 w-40 bg-pulse-surface border-2 border-pulse-border ring-2 ring-pulse-primary rounded-t-none rounded-b-lg overflow-hidden">
+              <ListboxOptions className="border-slate-400 ring-pulse-primary bg-white absolute right-0 z-50 w-40 dark:bg-pulse-surface border-2 dark:border-pulse-border ring-2 rounded-t-none rounded-b-lg overflow-hidden">
                 {CATEGORIES.map((each) => (
                   <ListboxOption
                     key={each.value}
                     value={each.value}
                     className={({ active, selected }) => `
                 cursor-pointer select-none px-3 py-2 text-sm font-semibold
-                ${active ? "bg-pulse-surface2 text-pulse-text" : "text-pulse-text"}
+                ${active ? "bg-slate-100 text-slate-800 dark:bg-pulse-surface2 dark:text-pulse-text" : "text-slate-700 dark:text-pulse-text"}
                 ${selected ? "opacity-100" : "opacity-90"}
                 `}
                   >
