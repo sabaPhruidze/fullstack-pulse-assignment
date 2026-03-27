@@ -17,9 +17,10 @@ const useThemeStore = create<ThemeState>((set) => ({
   theme: getInitialTheme(),
   toggleTheme: () =>
     set((state) => {
-      const nextTheme = state.theme === "dark" ? "light" : "dark";
+      // state theme is the previouse theme , it just is written like this
+      const nextTheme = state.theme === "dark" ? "light" : "dark"; //new value
       window.localStorage.setItem("pulse-theme", nextTheme);
-      return { theme: nextTheme };
+      return { theme: nextTheme }; // updates state
     }),
   setTheme: (theme) => {
     window.localStorage.setItem("pulse-theme", theme);
