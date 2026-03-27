@@ -27,7 +27,7 @@ const AlertSeveritySummary = ({ counts, active, onToggle }: Props) => {
             className={`flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold ${
               active[value]
                 ? `${styles.surface} ${styles.text}`
-                : "border-pulse-border text-pulse-soft"
+                : "border-slate-400 bg-white text-slate-600 dark:border-pulse-border dark:bg-transparent dark:text-pulse-soft"
             }`}
           >
             <span>{label}</span>

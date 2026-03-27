@@ -44,7 +44,7 @@ const Alerts = () => {
       <SectionCard title="Alert Center">
         {isLoading && <Loading />}
         {isError && (
-          <p className="text-sm text-red-400">
+          <p className="text-sm text-red-600 dark:text-red-400">
             {error instanceof Error ? error.message : "Failed to load alert"}
           </p>
         )}
