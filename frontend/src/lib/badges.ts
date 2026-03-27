@@ -8,7 +8,7 @@ const mediumBadge =
 const highBadge =
   "border border-orange-300 bg-orange-50 text-orange-700 dark:border-orange-500/20 dark:bg-orange-500/10 dark:text-orange-300";
 const criticalBadge =
-  "border border-red-300 bg-red-50 text-red-700 dark:border-red-500/20 dark:bg:bg-red-500/10 dark:text-red-300";
+  "border border-red-300 bg-red-50 text-red-700 dark:border-red-500/20 dark:bg-red-500/10 dark:text-red-300";
 
 export const badgeClassByCategory = (category: NewsCategory) => {
   switch (category) {
@@ -23,7 +23,7 @@ export const badgeClassByCategory = (category: NewsCategory) => {
     case "earnings":
       return "border border-green-300 bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-300 dark:border-green-500/20";
     case "regulatory":
-      return "border dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-500/20";
+      return "border border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-500/20 dark:bg-rose-500/10 dark:text-rose-300";
     default:
       return neutralBadge;
   }
