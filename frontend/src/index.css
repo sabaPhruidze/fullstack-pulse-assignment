@@ -36,6 +36,6 @@ code {
     @apply rounded-full border px-2 py-1 text-sm font-semibold border-slate-300 bg-slate-100 text-slate-600  dark:text-pulse-soft dark:border-pulse-border dark:bg-pulse-border/40;
   }
   .alert-special {
-    @apply rounded-full border border-pulse-border bg-pulse-surface px-2 text-[11px] font-bold text-pulse-text p-2;
+    @apply rounded-full border border-slate-300 bg-slate-100 text-slate-700 dark:border-pulse-border dark:bg-pulse-surface px-2 text-[11px] font-bold dark:text-pulse-text p-2;
   }
 }

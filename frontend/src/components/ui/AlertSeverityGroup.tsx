@@ -27,10 +27,10 @@ const AlertSeverityGroup = ({
         className={`flex w-full items-center justify-between rounded-lg border p-3 text-left ${styles.surface}`}
       >
         <div>
-          <h3 className="text-sm font-bold text-slate-800 dark:text-pulse-soft">
+          <h3 className="text-sm font-bold text-slate-800 dark:text-pulse-text/95">
             {title}
           </h3>
-          <p className="text-xs font-semibold text-slate-600 dark:text-pulse-soft capitalize">
+          <p className="text-xs font-semibold text-slate-600 dark:text-pulse-text/95 capitalize">
             {severity} severity
           </p>
         </div>

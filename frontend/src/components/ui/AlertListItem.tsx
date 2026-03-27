@@ -15,7 +15,7 @@ const AlertListItem = ({ item, showDivider = false }: Props) => {
   return (
     <div className="py-2">
       <div className="flex items-start justify-between gap-3">
-        <p className="text-sm font-bold text-pulse-text capitalize">
+        <p className="text-sm font-bold text-slate-800 dark:text-pulse-text capitalize">
           {heading}
         </p>
         <span
@@ -24,30 +24,32 @@ const AlertListItem = ({ item, showDivider = false }: Props) => {
           {item.severity}
         </span>
       </div>
-      <p className="mt-2 text-xs font-semibold text-pulse-soft">
+      <p className="mt-2 text-xs font-semibold text-slate-600 dark:text-pulse-soft">
         {assetLabel} • {item.assetType} • {formatTimesSTamp(item.timestamp)}
       </p>
-      <p className="mt-2 text-sm font-semibold text-pulse-muted">
+      <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-pulse-muted">
         {item.message}
       </p>
       {item.affectedAssets && (
-        <p className="mt-2 text-xs font-semibold text-pulse-soft">
+        <p className="mt-2 text-xs font-semibold text-slate-600 dark:text-pulse-soft">
           Affected: {item.affectedAssets.join(", ")}
         </p>
       )}
       {(item.actionRequired !== undefined || accuracy !== null) && (
-        <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-pulse-soft">
+        <div className="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-slate-600 dark:text-pulse-soft">
           {item.actionRequired !== undefined && (
             <span className="alert-special">
               Action: {item.actionRequired ? "Required" : "No"}
             </span>
           )}
           {accuracy !== null && (
-            <span className="alert-special ">AI accuracy: {accuracy}%</span>
+            <span className="alert-special">AI accuracy: {accuracy}%</span>
           )}
         </div>
       )}
-      {showDivider && <hr className="mt-4 border-pulse-border" />}
+      {showDivider && (
+        <hr className="mt-4 border-slate-300 dark:border-pulse-border" />
+      )}
     </div>
   );
 };

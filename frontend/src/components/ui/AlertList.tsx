@@ -7,11 +7,13 @@ type Props = {
 const AlertList = ({ items }: Props) => {
   if (!items.length) {
     return (
-      <p className="text-sm font-semibold text-pulse-soft">No alerts found</p>
+      <p className="text-sm font-semibold text-slate-600 dark:text-pulse-soft">
+        No alerts found
+      </p>
     );
   }
   return (
-    <div className="rounded-lg border border-pulse-border p-3">
+    <div className="rounded-lg border border-slate-400 dark:border-pulse-border p-3">
       {items.map((item, index) => (
         <AlertListItem
           key={item.id}
