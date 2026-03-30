@@ -42,7 +42,7 @@ const Search = () => {
   };
   return (
     <div
-      className="w-full max-w-[25rem] min-w-[10rem] px-5 relative"
+      className="relative w-full md:max-w-sm lg:max-w-md xl:max-w-lg px-5"
       ref={wrapperRef}
     >
       <DebouncedSearchInput

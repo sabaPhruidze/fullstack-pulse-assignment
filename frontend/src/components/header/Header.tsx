@@ -14,7 +14,7 @@ const Header = () => {
   const themeAlt = theme === "dark" ? "moon icon" : "sun icon";
   return (
     <>
-      <div className="w-full h-16 flex  justify-between items-center px-4 border-2 md:border-l-0 border-slate-300 bg-white text-slate-800 dark:text-pulse-text dark:bg-pulse-surface2 dark:border-pulse-border ">
+      <div className="w-full h-16 flex  justify-between items-center px-4 border-2 md:border-l-0 border-slate-300 bg-white text-slate-800 dark:text-pulse-text dark:bg-pulse-surface2 dark:border-pulse-border">
         <button
           type="button"
           onClick={() => setOpen(true)}
