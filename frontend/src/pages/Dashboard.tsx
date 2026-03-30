@@ -1,4 +1,3 @@
-import Header from "../components/header/Header";
 import useDashboardData from "../api/hooks/useDashboardData";
 import PortfolioSummaryCard from "./dashboard/PortfolioSummaryCard";
 import TopMoversCard from "./dashboard/TopMoversCard";
@@ -27,13 +26,26 @@ const Dashboard = () => {
           </div>
         </div>
       ) : (
-        <>
-          <PortfolioSummaryCard summary={data?.portfolio.data} />
-          <TopMoversCard title="Top Gainers" assets={list} mode="gainers" />
-          <TopMoversCard title="Top Losers" assets={list} mode="losers" />
-          <LatestNewsCard news={news} />
-          <ActiveAlertsCard alerts={alerts} />
-        </>
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-12">
+          <div className="md:col-span-2 xl:col-span-4">
+            <PortfolioSummaryCard summary={data?.portfolio.data} />
+          </div>
+          <div className="xl:col-span-4">
+            <TopMoversCard title="Top Gainers" assets={list} mode="gainers" />
+          </div>
+
+          <div className="xl:col-span-4">
+            {" "}
+            <TopMoversCard title="Top Losers" assets={list} mode="losers" />
+          </div>
+          <div className="md:col-span-2 xl:col-span-7">
+            <LatestNewsCard news={news} />
+          </div>
+
+          <div className="md:col-span-2 xl:col-span-5">
+            <ActiveAlertsCard alerts={alerts} />
+          </div>
+        </div>
       )}
     </PageLayout>
   );
