@@ -16,5 +16,9 @@ describe("NewsCategoryFilter", () => {
     const cryptoOption = screen.getByRole("option", { name: /crypto/i });
     // searching crypto in open menu
     await user.click(cryptoOption); //customer choose crypto
+    expect(onChange).toHaveBeenCalledTimes(1);
+    // check that onchange will be called 1 time
+    expect(onChange).toHaveBeenCalledWith("crypto");
+    //check that it called crypto and not anything other
   });
 });
