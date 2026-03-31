@@ -7,4 +7,5 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Assets", path: "/assets" },
   { label: "News", path: "/news" },
   { label: "Alerts", path: "/alerts" },
+  { label: "Portfolio", path: "/portfolio" },
 ];
