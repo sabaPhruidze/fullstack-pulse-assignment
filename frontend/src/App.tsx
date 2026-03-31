@@ -16,6 +16,8 @@ function App() {
     //document.documentElement is <html>  and classList.toggle("dark", theme === "dark") means if it is dark add it or if it is not remove it
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
+  // f
+
   return (
     <BrowserRouter
       future={{
