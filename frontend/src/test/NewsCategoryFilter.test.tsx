@@ -15,7 +15,7 @@ describe("NewsCategoryFilter", () => {
     render(<NewsCategoryFilter value="all" onChange={onChange} />);
     const filterButton = screen.getByRole("button", { name: /all/i });
     await user.click(filterButton);
-    const cryptoOption = screen.getByRole("button", { name: /crypto/i });
+    const cryptoOption = screen.getByRole("option", { name: /crypto/i });
     await user.click(cryptoOption);
     expect(onChange).toBeCalledTimes(1); // onChange it will be called 1 time
     expect(onChange).toHaveBeenCalledWith("crypto"); // check that it function received crypto

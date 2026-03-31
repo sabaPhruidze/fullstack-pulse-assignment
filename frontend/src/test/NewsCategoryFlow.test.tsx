@@ -37,14 +37,21 @@ function TestNewsFlow() {
   );
 }
 describe("News category flow", () => {
+  test("Default all shows all items", () => {
+    render(<TestNewsFlow />);
+    expect(screen.getByText("Showing 3 items")).toBeInTheDocument();
+    expect(screen.getByText("Bitcoin jumps")).toBeInTheDocument();
+    expect(screen.getByText("Fed holds rates")).toBeInTheDocument();
+    expect(screen.getByText("Nvidia beats estimates")).toBeInTheDocument();
+  });
   test("crypto choose only crypto news must remain", async () => {
     const user = userEvent.setup();
     render(<TestNewsFlow />);
-    expect(screen.getByText("Showing 3 items")).toBeInTheDocument(); // at the beginning it is 3 so it has to display 3 item
     const filterButton = screen.getByRole("button", { name: /all/i });
     await user.click(filterButton);
     const cryptoOption = screen.getByRole("option", { name: /crypto/i });
     await user.click(cryptoOption);
+
     expect(screen.getByText("Showing 1 items")).toBeInTheDocument();
     expect(screen.getByText("Bitcoin jumps")).toBeInTheDocument();
     expect(screen.queryByText("Fed holds rates")).toBeNull();
