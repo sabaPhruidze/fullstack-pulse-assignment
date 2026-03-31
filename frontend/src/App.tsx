@@ -1,15 +1,15 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "./components/shared/ErrorFallBack";
+import ErrorFallback from "./components/shared/ErrorFallback";
 import Loading from "./components/shared/Loading";
 import useThemeStore from "./store/useThemeStore";
-
+import { Navigate } from "react-router-dom";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Assets = lazy(() => import("./pages/Assets"));
 const News = lazy(() => import("./pages/News"));
 const Alerts = lazy(() => import("./pages/Alerts"));
-
+const Portfolio = lazy(() => import("./pages/Portfolio"));
 function App() {
   const theme = useThemeStore((state) => state.theme);
   useEffect(() => {
@@ -31,6 +31,8 @@ function App() {
               <Route path="/assets" element={<Assets />} />
               <Route path="/news" element={<News />} />
               <Route path="/alerts" element={<Alerts />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>
