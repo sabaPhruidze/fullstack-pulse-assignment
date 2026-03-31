@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "./components/shared/ErrorFallback";
+import FallbackError from "./components/shared/FallbackError";
 import Loading from "./components/shared/Loading";
 import useThemeStore from "./store/useThemeStore";
 import { Navigate } from "react-router-dom";
@@ -26,7 +26,7 @@ function App() {
       }}
     >
       <div className="min-h-screen bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <ErrorBoundary FallbackComponent={FallbackError}>
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/" element={<Dashboard />} />

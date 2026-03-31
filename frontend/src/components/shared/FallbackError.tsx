@@ -1,6 +1,6 @@
 import type { FallbackProps } from "react-error-boundary";
 
-const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
+const FallbackError = ({ error, resetErrorBoundary }: FallbackProps) => {
   const message =
     error instanceof Error ? error.message : "An unexpected error occured";
   return (
@@ -36,4 +36,4 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   );
 };
 
-export default ErrorFallback;
+export default FallbackError;
