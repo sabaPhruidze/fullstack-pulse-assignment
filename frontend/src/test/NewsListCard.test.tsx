@@ -31,4 +31,12 @@ describe("NewsListCard", () => {
     expect(screen.getByText("Bitcoin jumps")).toBeInTheDocument();
     expect(screen.getByText("Fed holds rates")).toBeInTheDocument();
   });
+  test("shows loading UI when isloading is true", () => {
+    render(<NewsListCard items={items} isLoading={true} />);
+    const loadingStatus = screen.getByRole("status", { name: /loading/i });
+
+    expect(loadingStatus).toBeInTheDocument();
+    expect(screen.queryByText("Bitcoin jumps")).toBeNull();
+    expect(screen.queryByText("Fed holds rates")).toBeNull();
+  });
 });
