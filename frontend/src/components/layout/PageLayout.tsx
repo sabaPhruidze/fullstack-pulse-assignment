@@ -14,7 +14,7 @@ function PageLayout({ title, subtitle, children }: Props) {
         <div className="min-w-0 flex-1">
           <Header />
           <main className="p-4 max-w-7xl mx-auto sm:p-5 md:p-6 lg:p-8 xl:px-10">
-            <div mx-auto w-full max-w-7xl>
+            <div className="mx-auto w-full max-w-7xl">
               <div className="mb-5 sm:mb-6">
                 <h1 className="mb-2 text-2xl font-bold text-pulse-800 dark:text-pulse-text sm:text-3xl lg:text-4xl">
                   {title}

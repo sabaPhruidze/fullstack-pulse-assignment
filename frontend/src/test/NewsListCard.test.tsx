@@ -39,4 +39,17 @@ describe("NewsListCard", () => {
     expect(screen.queryByText("Bitcoin jumps")).toBeNull();
     expect(screen.queryByText("Fed holds rates")).toBeNull();
   });
+  test("shows error message when isError is true", () => {
+    render(
+      <NewsListCard
+        items={items}
+        isError={true}
+        errorMessage="Failed to load news"
+      />,
+    );
+    const newsError = screen.getByText("Failed to load news");
+    expect(newsError).toBeInTheDocument();
+    expect(screen.queryByText("Bitcoin jumps")).toBeNull();
+    expect(screen.queryByText("Fed holds rates")).toBeNull();
+  });
 });

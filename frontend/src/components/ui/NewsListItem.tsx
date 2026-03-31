@@ -38,7 +38,9 @@ const NewsListItem = ({ item, showDivider = false }: Props) => {
       {item.tags.length && (
         <div className="mt-3 flex flex-wrap gap-2">
           {visibleTags.map((tag) => (
-            <span className="tag-additional">#{tag}</span>
+            <span className="tag-additional" key={tag}>
+              #{tag}
+            </span>
           ))}
           {remainingTags > 0 && (
             <span className="tag-additional">+{remainingTags}</span>

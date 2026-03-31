@@ -19,6 +19,7 @@ const DebouncedSearchInput = ({
   return (
     <input
       type="search"
+      name="search"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
