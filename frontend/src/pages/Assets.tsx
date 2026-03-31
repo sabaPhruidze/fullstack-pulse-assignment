@@ -47,8 +47,8 @@ function Assets() {
         onAssetClick={openAsset}
       />
       <AssetDetailsModal
-        open={!!selectedAsset} // it is null and by !! becomes object when row be clicked
-        asset={selectedAsset} // if selected Asset exist it will be seen if not closed
+        open={!!selectedAsset}
+        asset={selectedAsset}
         onClose={closeAsset}
       />
     </PageLayout>

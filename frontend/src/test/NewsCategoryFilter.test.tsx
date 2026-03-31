@@ -2,21 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import NewsCategoryFilter from "../components/ui/NewsCategoryFilter";
-import { type NewsCategory } from "../types/news";
-
-type Category = "all" | NewsCategory;
-
-type NewsItem = {
-  id: string;
-  title: string;
-  category: Exclude<Category, "all">;
-};
-
-const items: NewsItem[] = [
-  { id: "1", title: "Bitcoin jumps", category: "crypto" },
-  { id: "2", title: "Fed holds rates", category: "macro" },
-  { id: "3", title: "Nvidia beats estimates", category: "earnings" },
-];
 // this test needs browser API
 describe("NewsCategoryFilter", () => {
   test("on choose of crypto in onchange must call using crypto", async () => {
@@ -35,5 +20,9 @@ describe("NewsCategoryFilter", () => {
     // check that onchange will be called 1 time
     expect(onChange).toHaveBeenCalledWith("crypto");
     //check that it called crypto and not anything other
+  });
+  test("default value all is shown on button", () => {
+    render(<NewsCategoryFilter value="all" onChange={vi.fn()} />);
+    expect(screen.getByRole("button", { name: /all/i })).toBeInTheDocument();
   });
 });
