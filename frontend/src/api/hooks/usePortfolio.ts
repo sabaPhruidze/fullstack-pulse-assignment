@@ -8,7 +8,7 @@ const usePortfolio = () => {
     queryFn: async () => {
       return getPortfolio();
     },
-    staleTime: 30_000,
+    staleTime: 30_000, //
     refetchOnWindowFocus: false,
   });
 };
