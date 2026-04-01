@@ -1,4 +1,4 @@
-interface PortfolioAssets {
+interface PortfolioAsset {
   assetId: string;
   quantity: number;
   avgBuyPrice: number;
@@ -8,12 +8,12 @@ interface PortfolioAssets {
   changePercent: number;
 }
 export interface PortfolioData {
-  userId?: string;
+  userId: string;
   totalValue: number;
   totalChange: number;
   totalChangePercent: number;
-  assets?: PortfolioAssets[];
-  watchlist?: string[];
+  assets: PortfolioAsset[];
+  watchlist: string[];
 }
 export interface PortfolioResponse {
   success: boolean;
@@ -28,8 +28,8 @@ export interface PortfolioPerformanceData {
   totalValue: number;
   totalChange: number;
   totalChangePercent: number;
-  bestPerformer: PortfolioAssets;
-  worstPerformer: PortfolioAssets;
+  bestPerformer: PortfolioAsset;
+  worstPerformer: PortfolioAsset;
   assetAllocation: AssetAllocationItem[];
 }
 export interface PortfolioPerformanceResponse {
@@ -53,12 +53,11 @@ export interface Influencer {
   handle: string;
   platform: string;
   followerCount: number;
-  credibilityCount: number;
   credibilityScore: number;
   recentPredictions: InfluencerPrediction[];
   sentiment: number;
 }
-export interface InfluencerResponse {
+export interface InfluencersResponse {
   success: boolean;
   count: number;
   data: Influencer[];
