@@ -3,6 +3,7 @@ import usePortfolioPerformance from "../api/hooks/usePortfolioPerformance";
 import PageLayout from "../components/layout/PageLayout";
 import Loading from "../components/shared/Loading";
 import PortfolioPerformanceSection from "../components/portfolio/PortfolioPerformanceSection";
+import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocationSection";
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
   const { data: performanceData } = usePortfolioPerformance();
@@ -49,7 +50,15 @@ const Portfolio = () => {
               </div>
             )}
           </section>
-          <section>Charts section</section>
+          <section>
+            {performance ? (
+              <PortfolioAllocationSection performance={performance} />
+            ) : (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-5 text-sm text-slate-500 dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-soft">
+                Asset allocation chart is unavaliable
+              </div>
+            )}
+          </section>
           <section>Holdings / watchlist section</section>
         </div>
       ) : null}
