@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPortfolio } from "../endpoints/portfolio";
-import type { Portfolio } from "../../types/portfolio";
+import type { PortfolioResponse } from "../../types/portfolio";
 
 const usePortfolio = () => {
-  return useQuery<Portfolio>({
+  return useQuery<PortfolioResponse>({
     queryKey: ["portfolio"],
     queryFn: async () => {
       return getPortfolio();

@@ -4,11 +4,11 @@ import { getPortfolio } from "../endpoints/portfolio";
 import { getNews } from "../endpoints/news";
 import { getAlerts } from "../endpoints/alerts";
 import type { Assets } from "../../types/assets";
-import type { Portfolio } from "../../types/portfolio";
+import type { PortfolioResponse } from "../../types/portfolio";
 import type { News } from "../../types/news";
 import type { Alerts } from "../../types/alerts";
 type DashboardData = {
-  portfolio: Portfolio;
+  portfolio: PortfolioResponse;
   assets: Assets;
   news: News;
   alerts: Alerts;

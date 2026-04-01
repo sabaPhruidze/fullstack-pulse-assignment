@@ -1,8 +1,8 @@
 import SectionCard from "../../components/ui/SectionCard";
-import type { Data } from "../../types/portfolio";
+import type { PortfolioData } from "../../types/portfolio";
 
 type Props = {
-  summary?: Data;
+  summary?: PortfolioData;
 };
 function PortfolioSummaryCard({ summary }: Props) {
   const { totalValue, totalChange, totalChangePercent } = summary ?? {
