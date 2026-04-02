@@ -52,7 +52,7 @@ const Portfolio = () => {
             )}
           </section>
           <section>
-            <PortfolioAssetChangeSection />
+            <PortfolioAssetChangeSection assets={portfolio.assets} />
           </section>
           <section>Holdings / watchlist section</section>
         </div>
