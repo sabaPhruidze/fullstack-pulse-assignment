@@ -31,15 +31,6 @@ const Portfolio = () => {
             <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
               Portfolio Overview
             </h2>
-            <p className="mt-2 text-sm text-slate-500 dark:text-pulse-soft">
-              User: {portfolio.userId}
-            </p>{" "}
-            <p className="mt-1 text-sm text-slate-500 dark:text-pulse-soft">
-              User: {portfolio.assets.length}
-            </p>{" "}
-            <p className="mt-1 text-sm text-slate-500 dark:text-pulse-soft">
-              User: {portfolio.watchlist.length}
-            </p>
           </section>
           <section>
             {performance ? (
