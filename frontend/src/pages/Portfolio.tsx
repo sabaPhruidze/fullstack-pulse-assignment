@@ -61,7 +61,7 @@ const Portfolio = () => {
             <PortfolioHoldingsSection assets={portfolio.assets} />
           </section>
           <section>
-            <PortfolioWatchlistSection />
+            <PortfolioWatchlistSection watchlist={portfolio.watchlist} />
           </section>
         </div>
       ) : null}
