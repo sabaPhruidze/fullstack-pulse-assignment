@@ -7,13 +7,16 @@ import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocat
 import PortfolioAssetChangeSection from "../components/portfolio/PortfolioAssetChangeSection";
 import PortfolioHoldingsSection from "../components/portfolio/PortfolioHoldingsSection";
 import PortfolioWatchlistSection from "../components/portfolio/PortfolioWatchlistSection";
+import PortfolioInfluencersSection from "../components/portfolio/PortfolioInfluencersSection";
+import useInfluencers from "../api/hooks/useInfluencers";
 
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
   const { data: performanceData } = usePortfolioPerformance();
+  const { data: influencersData } = useInfluencers();
   const portfolio = data?.data;
   const performance = performanceData?.data;
-
+  const influencers = influencersData?.data;
   return (
     <PageLayout title="Portfolio" subtitle="Detailed holdings + charts">
       {isLoading ? (
@@ -62,6 +65,9 @@ const Portfolio = () => {
           </section>
           <section>
             <PortfolioWatchlistSection watchlist={portfolio.watchlist} />
+          </section>
+          <section>
+            <PortfolioInfluencersSection influencers={influencers} />
           </section>
         </div>
       ) : null}
