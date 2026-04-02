@@ -4,6 +4,7 @@ import PageLayout from "../components/layout/PageLayout";
 import Loading from "../components/shared/Loading";
 import PortfolioPerformanceSection from "../components/portfolio/PortfolioPerformanceSection";
 import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocationSection";
+import PortfolioAssetChangeSection from "../components/portfolio/PortfolioAssetChangeSection";
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
   const { data: performanceData } = usePortfolioPerformance();
@@ -49,6 +50,9 @@ const Portfolio = () => {
                 Asset allocation chart is unavaliable
               </div>
             )}
+          </section>
+          <section>
+            <PortfolioAssetChangeSection />
           </section>
           <section>Holdings / watchlist section</section>
         </div>
