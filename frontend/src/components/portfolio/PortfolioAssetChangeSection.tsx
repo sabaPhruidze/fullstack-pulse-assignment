@@ -1,12 +1,12 @@
 import {
   Bar,
-  BarChart,
+  BarChart, // is a bar graph wrapper
   CartesianGrid,
   Cell,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
+  ResponsiveContainer, //gives chart changeable size
+  Tooltip, //hover show small window
+  XAxis, // lower line
+  YAxis, //left line
 } from "recharts";
 import type { PortfolioData } from "../../types/portfolio";
 type Props = {
@@ -14,7 +14,14 @@ type Props = {
 };
 
 const formatPercent = (value: number) => `${value.toFixed(2)}%`;
-const barColor = (value: number) => (value >= 0 ? "#10b981" : "#ef4444"); //green and red
+const CHART_COLORS = [
+  "#6366f1",
+  "#8b5cf6",
+  "#06b6d4",
+  "#10b981",
+  "#f59e0b",
+  "#ef4444",
+];
 const PortfolioAssetChangeSection = ({ assets }: Props) => {
   const chartData = assets.map((asset) => ({
     name: asset.assetId, // XAxis shown name
@@ -49,10 +56,10 @@ const PortfolioAssetChangeSection = ({ assets }: Props) => {
               contentStyle={{ borderRadius: 12, border: "1px solid #334155" }}
             />
             <Bar dataKey="changePercent" radius={[8, 8, 0, 0]}>
-              {chartData.map((item) => (
+              {chartData.map((item, index) => (
                 <Cell
                   key={item.name}
-                  fill={barColor(item.changePercent)}
+                  fill={CHART_COLORS[index % CHART_COLORS.length]}
                   cursor="pointer"
                 />
               ))}
