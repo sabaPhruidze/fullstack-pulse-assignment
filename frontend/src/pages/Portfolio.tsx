@@ -6,6 +6,7 @@ import PortfolioPerformanceSection from "../components/portfolio/PortfolioPerfor
 import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocationSection";
 import PortfolioAssetChangeSection from "../components/portfolio/PortfolioAssetChangeSection";
 import PortfolioHoldingsSection from "../components/portfolio/PortfolioHoldingsSection";
+import PortfolioWatchlistSection from "../components/portfolio/PortfolioWatchlistSection";
 
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
@@ -59,7 +60,9 @@ const Portfolio = () => {
           <section>
             <PortfolioHoldingsSection assets={portfolio.assets} />
           </section>
-          <section>Holdings / watchlist section</section>
+          <section>
+            <PortfolioWatchlistSection />
+          </section>
         </div>
       ) : null}
     </PageLayout>
