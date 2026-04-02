@@ -1,6 +1,7 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import type { PortfolioPerformanceData } from "../../types/portfolio";
-
+import { formatCurrency } from "./AllocationTooltip";
+import AllocationToolTip from "./AllocationTooltip";
 type Props = {
   performance: PortfolioPerformanceData;
 };
@@ -13,51 +14,6 @@ const CHART_COLORS = [
   "#f59e0b",
   "#ef4444",
 ]; // Pie chart colors , each slice each color
-const formatCurrency = (value: number) => {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 2,
-  }).format(value);
-};
-const getTooltipTextColor = (hexColor: string) => {
-  const hex = hexColor.replace("#", "");
-  const r = parseInt(hex.slice(0, 2), 16);
-  const g = parseInt(hex.slice(2, 4), 16);
-  const b = parseInt(hex.slice(4, 6), 16);
-
-  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-  return brightness > 160 ? "#0f172a" : "#ffffff";
-};
-type AllocationTooltipProps = {
-  active?: boolean;
-  payload: Array<{
-    value: number;
-    color?: string;
-    payload: {
-      name: string;
-      value: number;
-      percentage: number;
-    };
-  }>;
-};
-const AllocationToolTip = ({ active, payload }: AllocationTooltipProps) => {
-  if (!active || !payload?.length) return null;
-  //This will change not only value but also text color and background . custom component
-  const item = payload[0];
-  const bgColor = item.color ?? "#0f172a";
-  const textColor = getTooltipTextColor(bgColor);
-  return (
-    <div
-      className="rounded-xl px-3 py-2 shadow-lg"
-      style={{ backgroundColor: bgColor, color: textColor }}
-    >
-      <p className="text-sm font-semibold">{item.payload.name}</p>
-      <p className="text-xs">Value: {formatCurrency(item.value)}</p>
-      <p className="text-sm">Share: {item.payload.percentage.toFixed(2)}%</p>
-    </div>
-  );
-};
 
 const PortfolioAllocationSection = ({ performance }: Props) => {
   const chartData = performance.assetAllocation.map((item) => ({
