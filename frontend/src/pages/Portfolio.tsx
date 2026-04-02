@@ -5,6 +5,8 @@ import Loading from "../components/shared/Loading";
 import PortfolioPerformanceSection from "../components/portfolio/PortfolioPerformanceSection";
 import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocationSection";
 import PortfolioAssetChangeSection from "../components/portfolio/PortfolioAssetChangeSection";
+import PortfolioHoldingsSection from "../components/portfolio/PortfolioHoldingsSection";
+
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
   const { data: performanceData } = usePortfolioPerformance();
@@ -53,6 +55,9 @@ const Portfolio = () => {
           </section>
           <section>
             <PortfolioAssetChangeSection assets={portfolio.assets} />
+          </section>
+          <section>
+            <PortfolioHoldingsSection assets={portfolio.assets} />
           </section>
           <section>Holdings / watchlist section</section>
         </div>
