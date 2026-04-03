@@ -9,7 +9,7 @@ import {
   YAxis, //left line
 } from "recharts";
 import type { PortfolioData } from "../../types/portfolio";
-import PortfolioSectionCard from "./PortfolioSectionCard";
+import SectionCard from "../ui/SectionCard";
 type Props = {
   assets: PortfolioData["assets"];
 };
@@ -29,7 +29,7 @@ const PortfolioAssetChangeSection = ({ assets }: Props) => {
     changePercent: asset.changePercent, //bar height
   }));
   return (
-    <PortfolioSectionCard
+    <SectionCard
       title="Asset Performance"
       description="Change percentage for each portfolio asset"
     >
@@ -63,7 +63,7 @@ const PortfolioAssetChangeSection = ({ assets }: Props) => {
           </BarChart>
         </ResponsiveContainer>
       </div>
-    </PortfolioSectionCard>
+    </SectionCard>
   );
 };
 

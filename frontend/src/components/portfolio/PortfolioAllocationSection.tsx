@@ -2,7 +2,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import type { PortfolioPerformanceData } from "../../types/portfolio";
 import { formatCurrency } from "./AllocationTooltip";
 import AllocationToolTip from "./AllocationTooltip";
-import PortfolioSectionCard from "./PortfolioSectionCard";
+import SectionCard from "../ui/SectionCard";
 type Props = {
   performance: PortfolioPerformanceData;
 };
@@ -23,7 +23,7 @@ const PortfolioAllocationSection = ({ performance }: Props) => {
     percentage: item.percentage,
   }));
   return (
-    <PortfolioSectionCard
+    <SectionCard
       title="Asset Allocation"
       description=" Portfolio distribution by current asset value."
     >
@@ -92,7 +92,7 @@ const PortfolioAllocationSection = ({ performance }: Props) => {
           </div>
         </div>
       )}
-    </PortfolioSectionCard>
+    </SectionCard>
   );
 };
 

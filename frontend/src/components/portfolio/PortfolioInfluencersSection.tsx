@@ -2,7 +2,7 @@ import type { InfluencersResponse } from "../../types/portfolio";
 type Props = {
   influencers: InfluencersResponse["data"];
 };
-import PortfolioSectionCard from "./PortfolioSectionCard";
+import SectionCard from "../ui/SectionCard";
 const PortfolioInfluencersSection = ({ influencers }: Props) => {
   if (influencers.length === 0) {
     return (
@@ -17,7 +17,7 @@ const PortfolioInfluencersSection = ({ influencers }: Props) => {
     );
   }
   return (
-    <PortfolioSectionCard title="Influencers">
+    <SectionCard title="Influencers">
       <div className="mt-4 space-y-3">
         {influencers.map((item) => {
           const recentPrediction = item.recentPredictions[0];
@@ -44,7 +44,7 @@ const PortfolioInfluencersSection = ({ influencers }: Props) => {
           );
         })}
       </div>
-    </PortfolioSectionCard>
+    </SectionCard>
   );
 };
 

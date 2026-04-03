@@ -2,12 +2,13 @@ import type { PortfolioData } from "../../types/portfolio";
 type Props = {
   watchlist: PortfolioData["watchlist"];
 };
-import PortfolioSectionCard from "./PortfolioSectionCard";
+import SectionCard from "../ui/SectionCard";
 const PortfolioWatchlistSection = ({ watchlist }: Props) => {
   return (
-    <PortfolioSectionCard
+    <SectionCard
       title="Watchlist"
       description="Assets you are tracking"
+      bodyClassName="mt-0"
     >
       {watchlist.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-300 p-4 text-slate-500 dark:border-pulse-border dark:text-pulse-soft">
@@ -25,7 +26,7 @@ const PortfolioWatchlistSection = ({ watchlist }: Props) => {
           ))}
         </div>
       )}
-    </PortfolioSectionCard>
+    </SectionCard>
   );
 };
 

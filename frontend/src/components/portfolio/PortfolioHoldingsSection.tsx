@@ -1,5 +1,5 @@
 import type { PortfolioData } from "../../types/portfolio";
-import PortfolioSectionCard from "./PortfolioSectionCard";
+import SectionCard from "../ui/SectionCard";
 type Props = {
   assets: PortfolioData["assets"];
 };
@@ -43,7 +43,7 @@ const PortfolioHoldingsSection = ({ assets }: Props) => {
     },
   ];
   return (
-    <PortfolioSectionCard
+    <SectionCard
       title="Holdings"
       description="Current portfolio asset details."
     >
@@ -77,7 +77,7 @@ const PortfolioHoldingsSection = ({ assets }: Props) => {
           </tbody>
         </table>
       </div>
-    </PortfolioSectionCard>
+    </SectionCard>
   );
 };
 
