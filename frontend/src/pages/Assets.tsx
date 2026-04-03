@@ -36,6 +36,7 @@ function Assets() {
         onChange={setSearchInput}
         onDebounce={setSearch}
       />
+      <div className="mt-10" />
       <AssetsListCard
         title="Assets"
         items={displayedItems}
