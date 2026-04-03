@@ -2,21 +2,15 @@ import usePortfolio from "../api/hooks/usePortfolio";
 import usePortfolioPerformance from "../api/hooks/usePortfolioPerformance";
 import PageLayout from "../components/layout/PageLayout";
 import Loading from "../components/shared/Loading";
-import PortfolioPerformanceSection from "../components/portfolio/PortfolioPerformanceSection";
-import PortfolioAllocationSection from "../components/portfolio/PortfolioAllocationSection";
-import PortfolioAssetChangeSection from "../components/portfolio/PortfolioAssetChangeSection";
-import PortfolioHoldingsSection from "../components/portfolio/PortfolioHoldingsSection";
-import PortfolioWatchlistSection from "../components/portfolio/PortfolioWatchlistSection";
-import PortfolioInfluencersSection from "../components/portfolio/PortfolioInfluencersSection";
 import useInfluencers from "../api/hooks/useInfluencers";
-
+import { getPortfolioSections } from "../lib/getPortfolioSections";
 const Portfolio = () => {
   const { data, isLoading, isError, error } = usePortfolio();
   const { data: performanceData } = usePortfolioPerformance();
   const { data: influencersData } = useInfluencers();
   const portfolio = data?.data;
   const performance = performanceData?.data;
-  const influencers = influencersData?.data;
+  const influencers = influencersData?.data ?? [];
   if (isLoading) {
     return (
       <PageLayout title="Portfolio" subtitle="Detailed holdings + charts">
@@ -45,52 +39,11 @@ const Portfolio = () => {
       </PageLayout>
     );
   }
-  const sections = [
-    {
-      key: "overview",
-      content: (
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Portfolio Overview
-        </h2>
-      ),
-    },
-    {
-      key: "performance",
-      content: performance ? (
-        <PortfolioPerformanceSection performance={performance} />
-      ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-5 text-sm text-slate-500 dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-soft">
-          Summary cards are unavailable
-        </div>
-      ),
-    },
-    {
-      key: "allocation",
-      content: performance ? (
-        <PortfolioAllocationSection performance={performance} />
-      ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-5 text-sm text-slate-500 dark:border-pulse-border dark:bg-pulse-surface dark:text-pulse-soft">
-          Asset allocation chart is unavailable
-        </div>
-      ),
-    },
-    {
-      key: "asset-change",
-      content: <PortfolioAssetChangeSection assets={portfolio.assets} />,
-    },
-    {
-      key: "holdings",
-      content: <PortfolioHoldingsSection assets={portfolio.assets} />,
-    },
-    {
-      key: "watchlist",
-      content: <PortfolioWatchlistSection watchlist={portfolio.watchlist} />,
-    },
-    {
-      key: "influencers",
-      content: <PortfolioInfluencersSection influencers={influencers || []} />,
-    },
-  ];
+  const sections = getPortfolioSections({
+    performance,
+    portfolio,
+    influencers,
+  });
   return (
     <PageLayout title="Portfolio" subtitle="Detailed holdings + charts">
       <div className="mt-6 space-y-6">
