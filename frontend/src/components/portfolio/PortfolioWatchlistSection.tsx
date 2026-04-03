@@ -2,17 +2,13 @@ import type { PortfolioData } from "../../types/portfolio";
 type Props = {
   watchlist: PortfolioData["watchlist"];
 };
+import PortfolioSectionCard from "./PortfolioSectionCard";
 const PortfolioWatchlistSection = ({ watchlist }: Props) => {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-pulse-border dark:bg-pulse-surface">
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Watchlist
-        </h2>
-        <p className="mt-1 text-sm text-slate-500 dark:text-pulse-soft">
-          Assets you are tracking
-        </p>
-      </div>
+    <PortfolioSectionCard
+      title="Watchlist"
+      description="Assets you are tracking"
+    >
       {watchlist.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-300 p-4 text-slate-500 dark:border-pulse-border dark:text-pulse-soft">
           No assets in watchlist
@@ -29,7 +25,7 @@ const PortfolioWatchlistSection = ({ watchlist }: Props) => {
           ))}
         </div>
       )}
-    </div>
+    </PortfolioSectionCard>
   );
 };
 

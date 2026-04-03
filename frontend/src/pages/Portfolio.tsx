@@ -67,7 +67,7 @@ const Portfolio = () => {
             <PortfolioWatchlistSection watchlist={portfolio.watchlist} />
           </section>
           <section>
-            <PortfolioInfluencersSection influencers={influencers} />
+            <PortfolioInfluencersSection influencers={influencers || []} />
           </section>
         </div>
       ) : null}

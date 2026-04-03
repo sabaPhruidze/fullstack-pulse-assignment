@@ -1,4 +1,5 @@
 import type { PortfolioData } from "../../types/portfolio";
+import PortfolioSectionCard from "./PortfolioSectionCard";
 type Props = {
   assets: PortfolioData["assets"];
 };
@@ -42,15 +43,10 @@ const PortfolioHoldingsSection = ({ assets }: Props) => {
     },
   ];
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 dark:border-pulse-border dark:bg-pulse-surface">
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Holdings
-        </h2>
-        <p className="mt-1 text-sm text-slate-500 dark:text-pulse-soft">
-          Current portfolio asset details.
-        </p>
-      </div>
+    <PortfolioSectionCard
+      title="Holdings"
+      description="Current portfolio asset details."
+    >
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead className="border-b border-slate-200 dark:border-pulse-border">
@@ -81,7 +77,7 @@ const PortfolioHoldingsSection = ({ assets }: Props) => {
           </tbody>
         </table>
       </div>
-    </div>
+    </PortfolioSectionCard>
   );
 };
 
