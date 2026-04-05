@@ -16,6 +16,7 @@ const News = () => {
   return (
     <PageLayout title="News" subtitle="Market news with category filtering.">
       <NewsCategoryFilter value={category} onChange={setCategory} />
+      <div className="mt-10" />
       <NewsListCard
         title="All News"
         subtitle={`Showing ${filteredItems.length} items`}
